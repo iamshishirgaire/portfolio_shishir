@@ -4,6 +4,7 @@ import HeroSection from "@/components/hero-section";
 import ScrollToTop from "@/components/scroll-to-top";
 import SkillsSection from "@/components/skills";
 import Testimonials from "@/components/testimonials";
+import TimeLine from "@/components/timeline";
 
 export default function Home() {
   return (
@@ -11,31 +12,37 @@ export default function Home() {
       <ScrollToTop></ScrollToTop>
       <main className="flex-1">
         <section
-          className="w-full h-[100vh] py-12 md:py-24 lg:py-32 xl:py-48"
+          className="w-full h-[100vh] py-12 md:py-24 lg:py-32 xl:py-48 dark:bg-black"
           id="hero-section"
         >
           <HeroSection></HeroSection>
         </section>
         <section
-          className="w-full flex items-center justify-center  py-12 md:py-24 lg:py-32 dark:bg-gray-900 bg-zinc-100 "
+          className="w-full flex items-center justify-center  py-12 md:py-24 lg:py-32 dark:bg-zinc-950 bg-zinc-100 "
           id="projects"
         >
           <FeaturedProjects></FeaturedProjects>
         </section>
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-950"
+          className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black"
           id="testimonials-section"
         >
           <Testimonials></Testimonials>
         </section>{" "}
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-gray-900"
+          className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-zinc-950"
           id="skills-section"
         >
           <SkillsSection></SkillsSection>
         </section>
         <section
-          className="w-full py-12 md:py-24 lg:py-32 "
+          className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black"
+          id="testimonials-section"
+        >
+          <TimeLine></TimeLine>
+        </section>{" "}
+        <section
+          className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-zinc-950 "
           id="contact-section"
         >
           <ContactMe></ContactMe>

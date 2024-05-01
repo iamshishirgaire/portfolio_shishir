@@ -2,52 +2,86 @@ export type Skill = {
   name: string;
   description: string;
   logo: string;
+  link: string;
 };
+
 export const skills: Skill[] = [
-  {
-    name: "Dart",
-    description: "Experienced in building server-side applications and APIs.",
-    logo: "/icons/dart.svg",
-  },
-  {
-    name: "Flutter",
-    description: "Experienced in building server-side applications and APIs.",
-    logo: "/icons/flutter.svg",
-  },
   {
     name: "Typescript",
     description:
-      "Proficient in building modern, component-based user interfaces.",
+      "A superset of JavaScript for building modern, type-safe applications.",
     logo: "/icons/typescript.svg",
+    link: "https://www.typescriptlang.org/",
+  },
+  {
+    name: "Javascript",
+    description: "A dynamic language for building web applications.",
+    logo: "/icons/js.svg",
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  {
+    name: "Next Js",
+    description:
+      "A React framework for server-side rendering and static site generation.",
+    logo: "/icons/nextjs.svg",
+    link: "https://nextjs.org/",
+  },
+  {
+    name: "React Js",
+    description:
+      "A JavaScript library for building interactive user interfaces.",
+    logo: "/icons/react.svg",
+    link: "https://reactjs.org/",
+  },
+  {
+    name: "Astro",
+    description: "A modern static site generator prioritizing performance.",
+    logo: "/icons/astro.svg",
+    link: "https://astro.build/",
+  },
+  {
+    name: "Tailwind CSS",
+    description: "A utility-first CSS framework for rapid UI development.",
+    logo: "/icons/tailwind.svg",
+    link: "https://tailwindcss.com/",
   },
   {
     name: "Node.js",
-    description: "Experienced in building server-side applications and APIs.",
+    description:
+      "A runtime environment for running JavaScript code on the server-side.",
     logo: "/icons/nodejs.svg",
-  },
-  {
-    name: "Firebase",
-    description: "Experienced in building server-side applications and APIs.",
-    logo: "/icons/firebase.svg",
+    link: "https://nodejs.org/",
   },
   {
     name: "Nest Js",
-    description: "Experienced in building server-side applications and APIs.",
+    description:
+      "A modern Node.js framework for building scalable server-side apps.",
     logo: "/icons/nestjs.svg",
+    link: "https://nestjs.com/",
   },
   {
     name: "Postgres",
-    description: "Skilled in using Tailwind CSS for rapid UI development.",
+    description: "A robust relational database management system.",
     logo: "/icons/postgres.svg",
+    link: "https://www.postgresql.org/",
   },
   {
     name: "Mongodb",
-    description: "Skilled in designing and prototyping user interfaces.",
+    description: "A popular NoSQL database management system.",
     logo: "/icons/mongodb.svg",
+    link: "https://www.mongodb.com/",
   },
   {
     name: "Figma",
-    description: "Skilled in designing and prototyping user interfaces.",
+    description: "A collaborative design tool for prototyping user interfaces.",
     logo: "/icons/figma.svg",
+    link: "https://www.figma.com/",
+  },
+  {
+    name: "Git",
+    description:
+      "A distributed version control system for tracking changes in source code.",
+    logo: "/icons/git.svg",
+    link: "https://git-scm.com/",
   },
 ];

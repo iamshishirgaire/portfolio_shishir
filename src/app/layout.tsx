@@ -8,9 +8,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Santosh Acharya",
+  title: "Shishir Gaire",
   description:
-    "Personal website of Santosh Acharya showcasing his work and blog posts.",
+    "Personal website of Shishir Gaire showcasing his work and blog posts.",
 };
 
 export default function RootLayout({

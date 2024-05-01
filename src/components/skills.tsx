@@ -1,6 +1,7 @@
 import { skills } from "@/content/skills";
 import Image from "next/image";
 import { AnimatedSection, AnimatedTitle } from "./animated-sec";
+import Link from "next/link";
 const SkillsSection = () => {
   return (
     <div className="container px-4 md:px-6">
@@ -32,19 +33,21 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
 function SkillCard({
   skill,
 }: {
-  skill: { name: string; description: string; logo: string };
+  skill: { name: string; description: string; logo: string; link: string };
 }) {
   return (
     <AnimatedSection>
-      <div className="group overflow-hidden rounded-lg bg-white hover:bg-gray-50  dark:hover:bg-popover/50   ease-in-out duration-500 shadow-sm transition-all   dark:bg-popover border-border/25">
-        <div className="p-4">
-          <LogoImage src={skill.logo} alt={skill.name} />
-          <h3 className="mt-2 text-xl font-semibold">{skill.name}</h3>
-          <p className="mt-2 text-gray-500 dark:text-gray-400">
-            {skill.description}
-          </p>
+      <Link href={skill.link} target="_blank">
+        <div className="group overflow-hidden rounded-lg bg-white hover:bg-gray-50  dark:hover:bg-popover/50   ease-in-out duration-500 shadow-sm transition-all   dark:bg-popover border-border/25">
+          <div className="p-4">
+            <LogoImage src={skill.logo} alt={skill.name} />
+            <h3 className="mt-2 text-xl font-semibold">{skill.name}</h3>
+            <p className="mt-2 text-gray-500 dark:text-gray-400">
+              {skill.description}
+            </p>
+          </div>
         </div>
-      </div>
+      </Link>
     </AnimatedSection>
   );
 }

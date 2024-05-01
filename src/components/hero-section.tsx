@@ -10,15 +10,15 @@ const HeroSection = () => {
         <AnimatedSection>
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl` md:text-5xl lg:text-6xl/none">
-              Hi, I'm Santosh Acharya
+              Hi, I'm Shishir Gaire
             </h1>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-              I'm a passionate{" "}
+              A{" "}
               <span className="text-primary">
-                Fullstack application developer{" "}
+                passionate, Self-taught Fullstack Web developer{" "}
               </span>
               with a focus on creating beautiful, responsive, and user-friendly
-              mobile applications.
+              web applications.
             </p>
             <div className="flex gap-4">
               <Link href={"#contact-section"}>
@@ -30,11 +30,11 @@ const HeroSection = () => {
         </AnimatedSection>
         <AnimatedImage>
           <Image
-            alt="Santosh Acharya"
+            alt="Shishir Gaire"
             className="mx-auto aspect-square overflow-hidden rounded-full object-cover"
-            height="550"
+            height="500"
             src="/images/profile.jpg"
-            width="550"
+            width="500"
           />
         </AnimatedImage>
       </div>

@@ -8,6 +8,7 @@ import SubmitBtn from "./submit-email";
 import { sendEmail } from "../../actions/send-email";
 import { toast } from "sonner";
 import { AnimatedSection, AnimatedTitle } from "./animated-sec";
+import { SocialLinks } from "@/content/links";
 
 export default function ContactMe() {
   return (
@@ -27,9 +28,21 @@ export default function ContactMe() {
           </AnimatedTitle>
           <AnimatedSection>
             <div className="flex justify-center space-x-4 lg:justify-start">
-              <LinkComponent href="#" src="linkedin" alt="Linkedin" />
-              <LinkComponent href="#" src="twitter" alt="Twitter" />
-              <LinkComponent href="#" src="github" alt="Github" />
+              <LinkComponent
+                href={SocialLinks.linkedin}
+                src="linkedin"
+                alt="Linkedin"
+              />
+              <LinkComponent
+                href={SocialLinks.twitter}
+                src="twitter"
+                alt="Twitter"
+              />
+              <LinkComponent
+                href={SocialLinks.github}
+                src="github"
+                alt="Github"
+              />
             </div>
           </AnimatedSection>
         </div>
@@ -81,7 +94,7 @@ function LinkComponent({
   alt: string;
 }) {
   return (
-    <Link href={href}>
+    <Link href={href} target="_blank">
       <Image
         className="hover:scale-105 duration-300 transition-transform cursor-pointer"
         src={`/icons/${src}.svg`}
