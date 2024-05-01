@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { AnimatedImage, AnimatedSection } from "./animated-sec";
 import Image from "next/image";
+import { SocialLinks } from "@/content/links";
 
 const HeroSection = () => {
   return (
@@ -24,7 +25,9 @@ const HeroSection = () => {
               <Link href={"#contact-section"}>
                 <Button>Get in touch</Button>
               </Link>
-              <Button variant={"ghost"}>Download Resume</Button>
+              <Link href={SocialLinks.resume}>
+                <Button variant={"ghost"}>Download Resume</Button>
+              </Link>
             </div>
           </div>
         </AnimatedSection>
