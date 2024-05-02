@@ -10,6 +10,9 @@ const TimeLine = () => {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Education
             </h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              Here is a brief overview of my academic journey.
+            </p>
           </div>
         </AnimatedTitle>
         <ol className="relative border-s border-gray-200 dark:border-gray-700">

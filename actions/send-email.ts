@@ -2,36 +2,42 @@
 
 import React from "react";
 import { Resend } from "resend";
-import { getErrorMessage, validateString } from "@/lib/utils";
+import { getErrorMessage } from "@/lib/utils";
 import ContactFormEmail from "../emails/contact-form-email";
-
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
+import { headers } from "next/headers";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const sendEmail = async (formData: FormData) => {
-  const senderEmail = formData.get("senderEmail");
-  const message = formData.get("message");
-
-  if (!validateString(senderEmail, 500)) {
-    return {
-      error: "Invalid sender email",
-    };
-  }
-  if (!validateString(message, 5000)) {
-    return {
-      error: "Invalid message",
-    };
-  }
-
+const rateLimit = new Ratelimit({
+  redis: new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL as string,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN as string,
+  }),
+  limiter: Ratelimit.slidingWindow(2, "60m"),
+});
+export const sendEmail = async (formdata: {
+  email: string;
+  message: string;
+  userName: string;
+}) => {
   let data;
   try {
+    const ip = headers().get("x-forwared-for");
+    const { remaining, success } = await rateLimit.limit(ip!);
+    if (!success || remaining === 0) {
+      return {
+        error: "Rate limit exceeded",
+      };
+    }
     data = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: "onboarding@resend.dev",
       to: "shishirgaire35@gmail.com",
-      subject: "Message from contact form",
-      reply_to: senderEmail,
+      subject: "Message from personal Portfolio website",
       react: React.createElement(ContactFormEmail, {
-        message: message,
-        senderEmail: senderEmail,
+        message: formdata.message,
+        userFirstname: formdata.userName,
+        email: formdata.email,
       }),
     });
   } catch (error: unknown) {

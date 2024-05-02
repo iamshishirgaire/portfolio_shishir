@@ -38,7 +38,7 @@ export default function FeaturedProjects() {
         <CarouselContent>
           {projects.map((project, index) => (
             <CarouselItem key={index}>
-              <Card>
+              <Card className="dark:bg-black">
                 <CardContent>
                   <div className="grid grid-cols-1  hover:bg-gray-10 md:grid-cols-2 gap-6 p-6">
                     <div className="flex flex-col h-full justify-between">

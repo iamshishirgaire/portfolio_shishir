@@ -1,16 +1,53 @@
 "use client";
+import { SocialLinks } from "@/content/links";
 import Image from "next/image";
 import Link from "next/link";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import { Textarea } from "./ui/textarea";
-import SubmitBtn from "./submit-email";
-import { sendEmail } from "../../actions/send-email";
-import { toast } from "sonner";
 import { AnimatedSection, AnimatedTitle } from "./animated-sec";
-import { SocialLinks } from "@/content/links";
+import { Input } from "./ui/input";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
+import { sendEmail } from "../../actions/send-email";
+import { Button } from "./ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./ui/form";
+import { Textarea } from "./ui/textarea";
+
+export const contactFormSchema = z.object({
+  fullName: z.string().min(2, {
+    message: "Name must be at least 3 characters.",
+  }),
+  email: z.string().email(),
+  message: z
+    .string()
+    .min(10, {
+      message: "Message must be at least 10 characters.",
+    })
+    .max(100, {
+      message: "Message must be at most 100 characters.",
+    }),
+});
 
 export default function ContactMe() {
+  const [loading, setLoading] = useState(false);
+
+  const form = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      message: "",
+    },
+  });
   return (
     <section id="contact-section" className="w-full py-12 md:py-24 lg:py-32">
       <div className="container grid max-w-5xl items-center justify-center gap-8 px-4 text-center md:gap-12 md:px-6 lg:grid-cols-2 lg:text-left xl:max-w-6xl xl:gap-16">
@@ -46,38 +83,82 @@ export default function ContactMe() {
             </div>
           </AnimatedSection>
         </div>
-        <div className="rounded-lg border bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-950">
-          <form
-            className="space-y-4"
-            action={async (formData) => {
-              const { data, error } = await sendEmail(formData);
+        <div className="rounded-lg border bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-black">
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(async (formdata) => {
+                setLoading(true);
+                const { data, error } = await sendEmail({
+                  email: formdata.email,
+                  message: formdata.message,
+                  userName: formdata.fullName,
+                });
+                setLoading(false);
+                if (error) {
+                  toast.error(error);
+                }
+                if (data) {
+                  toast.success("Success. Get back to you soon");
+                  form.reset();
+                }
+              })}
+              className="space-y-8  dark:bg-black"
+            >
+              <FormField
+                control={form.control}
+                name="fullName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Full Name" {...field} />
+                    </FormControl>
 
-              if (error) {
-                toast.error("Failed to send email. Please try again.");
-                return;
-              }
-
-              toast.success("Email sent successfully!");
-            }}
-          >
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="Enter your name" />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" placeholder="Enter your email" type="email" />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="message">Message</Label>
-              <Textarea
-                className="min-h-[120px]"
-                id="message"
-                placeholder="Enter your message"
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
-            <SubmitBtn></SubmitBtn>
-          </form>
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Email Address" {...field} />
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Message" {...field} />
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button
+                type="submit"
+                className="group flex items-center justify-center gap-2"
+                disabled={loading}
+              >
+                {loading ? (
+                  <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
+                ) : (
+                  <>{loading ? "Sending..." : "Send"} </>
+                )}
+              </Button>
+            </form>
+          </Form>
         </div>
       </div>
     </section>

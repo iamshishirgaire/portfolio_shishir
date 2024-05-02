@@ -1,3 +1,4 @@
+import TopBanner from "@/components/banner";
 import ContactMe from "@/components/contact-section";
 import FeaturedProjects from "@/components/featured-projects";
 import HeroSection from "@/components/hero-section";

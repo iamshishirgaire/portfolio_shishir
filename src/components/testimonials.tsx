@@ -38,7 +38,7 @@ const Testimonials = () => {
             {testimonials.map((testimonial, index) => (
               <CarouselItem className="lg:basis-1/2 xl:basis-1/3" key={index}>
                 <AnimatedSection>
-                  <Card className="group overflow-hidden rounded-lg bg-white hover:bg-gray-50 dark:hover:bg-gray-900 duration-500  shadow-sm transition-all hover:shadow-lg  dark:bg-gray-950 dark:hover:shadow-md">
+                  <Card className="group overflow-hidden rounded-lg bg-white hover:bg-gray-50 dark:hover:bg-zinc-950 duration-500  shadow-sm transition-all hover:shadow-lg  dark:bg-black dark:hover:shadow-md">
                     <CardHeader>
                       <div className="flex items-center space-x-4">
                         <Avatar>

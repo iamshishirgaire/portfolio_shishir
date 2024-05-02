@@ -4,6 +4,7 @@ import AppProvider from "@/components/provider/app-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import TopBanner from "@/components/banner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <AppProvider>
+          <TopBanner></TopBanner>
+
           <Navbar></Navbar>
           <div>{children}</div>
           <Footer></Footer>

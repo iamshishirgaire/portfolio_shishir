@@ -10,17 +10,6 @@ export function getInitials(name: string) {
   return firstName.charAt(0) + lastName.charAt(0);
 }
 
-export const validateString = (
-  value: unknown,
-  maxLength: number
-): value is string => {
-  if (!value || typeof value !== "string" || value.length > maxLength) {
-    return false;
-  }
-
-  return true;
-};
-
 export const getErrorMessage = (error: unknown): string => {
   let message: string;
 

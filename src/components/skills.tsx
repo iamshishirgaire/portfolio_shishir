@@ -38,7 +38,7 @@ function SkillCard({
   return (
     <AnimatedSection>
       <Link href={skill.link} target="_blank">
-        <div className="group overflow-hidden rounded-lg bg-white hover:bg-gray-50  dark:hover:bg-popover/50   ease-in-out duration-500 shadow-sm transition-all   dark:bg-popover border-border/25">
+        <div className="group overflow-hidden rounded-lg bg-white hover:bg-gray-50  dark:hover:bg-popover/50   ease-in-out duration-500 shadow-sm transition-all   dark:bg-black border ">
           <div className="p-4">
             <LogoImage src={skill.logo} alt={skill.name} />
             <h3 className="mt-2 text-xl font-semibold">{skill.name}</h3>

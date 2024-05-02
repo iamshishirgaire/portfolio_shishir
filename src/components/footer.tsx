@@ -2,6 +2,7 @@ import { SocialLinks } from "@/content/links";
 import { Github, GithubIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { Badge } from "./ui/badge";
 
 const Footer = () => {
   return (
@@ -18,6 +19,7 @@ const Footer = () => {
             </p>
           </div>
         </Link>
+        <Badge variant={"destructive"}>Under development</Badge>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6"></nav>
       </footer>
     </>
