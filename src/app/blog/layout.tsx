@@ -1,7 +1,7 @@
-export default function BlogLayout({
+export default function BlogDetailPage({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  <div>{children}</div>;
+  return <div>{children}</div>;
 }

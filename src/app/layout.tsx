@@ -24,8 +24,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <AppProvider>
           <TopBanner></TopBanner>
-
-          <Navbar></Navbar>
           <div>{children}</div>
           <Footer></Footer>
         </AppProvider>
