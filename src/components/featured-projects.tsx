@@ -40,7 +40,7 @@ export default function FeaturedProjects() {
             <CarouselItem key={index}>
               <Card className="dark:bg-black">
                 <CardContent>
-                  <div className="grid grid-cols-1  hover:bg-gray-10 md:grid-cols-2 gap-6 p-6">
+                  <div className="grid grid-cols-1  hover:bg-gray-10 md:grid-cols-2 gap-6 p-2 md:p-6">
                     <div className="flex flex-col h-full justify-between">
                       <div className="space-y-4">
                         <h2 className="text-xl lg:text-3xl font-bold">

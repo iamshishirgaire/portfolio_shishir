@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { Navbar } from "./components/navbar";
 
 export default function BlogPage() {
   return (
     <div>
       <header className="bg-background py-6 md:py-8">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-8 bg-popover md:grid-cols-2 md:items-center">
+          <div className="grid gap-8  md:grid-cols-2 md:items-center">
             <div className="order-first md:order-last">
               <img
                 alt="Hero Image"
