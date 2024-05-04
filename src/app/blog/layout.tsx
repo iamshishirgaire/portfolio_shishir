@@ -1,7 +1,14 @@
+import BlogNavbar from "./components/navbar";
+
 export default function BlogDetailPage({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <BlogNavbar />
+      {children}
+    </div>
+  );
 }

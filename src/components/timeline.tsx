@@ -53,7 +53,7 @@ const TimeLine = () => {
               Sweta Sadan School
             </h3>
             <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-              School Leaving Certificate (20014 - 2017)
+              School Leaving Certificate (2014 - 2017)
             </time>
           </li>
         </ol>

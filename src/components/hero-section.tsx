@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { AnimatedImage, AnimatedSection } from "./animated-sec";
 import Image from "next/image";
-import { SocialLinks } from "@/content/links";
+import { SocialLinks } from "../data/links";
 
 const HeroSection = () => {
   return (

@@ -1,4 +1,4 @@
-import { skills } from "@/content/skills";
+import { skills } from "../data/skills";
 import Image from "next/image";
 import { AnimatedSection, AnimatedTitle } from "./animated-sec";
 import Link from "next/link";

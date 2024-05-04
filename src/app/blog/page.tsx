@@ -1,40 +1,11 @@
-import { ThemeToggler } from "@/components/theme-toggler";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { SearchIcon } from "lucide-react";
 import Link from "next/link";
+import { Navbar } from "./components/navbar";
 
 export default function BlogPage() {
   return (
     <div>
       <header className="bg-background py-6 md:py-8">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex mb-10  items-center gap-5 justify-between">
-            <Link className="flex items-center justify-center" href="/">
-              <p className="font-extrabold text-3xl">
-                shishir<span className="text-primary">.dev</span>
-              </p>
-              <span className="sr-only">Portfolio</span>
-            </Link>
-            <div className="flex gap-3 items-center">
-              <div className="flex md:hidden">
-                <Button variant={"ghost"} size={"icon"}>
-                  <SearchIcon className=" text-gray-500 dark:text-gray-400" />
-                </Button>
-              </div>
-              <div className="relative hidden md:block w-full max-w-md">
-                <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400" />
-                <Input
-                  className="w-full rounded-md bg-white px-10 py-2 text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-500 dark:bg-gray-950 dark:text-gray-50 dark:focus:ring-gray-400"
-                  placeholder="Search blog posts..."
-                  type="search"
-                />
-              </div>
-              <div className="p-1">
-                <ThemeToggler></ThemeToggler>
-              </div>
-            </div>
-          </div>
           <div className="grid gap-8 bg-popover md:grid-cols-2 md:items-center">
             <div className="order-first md:order-last">
               <img

@@ -1,8 +1,8 @@
-import { SocialLinks } from "@/content/links";
-import { Github, GithubIcon } from "lucide-react";
+import { SocialLinks } from "../data/links";
+import { Github } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 import { Badge } from "./ui/badge";
+import BlogToWeb from "./blog-to-web";
 
 const Footer = () => {
   return (
@@ -19,7 +19,10 @@ const Footer = () => {
             </p>
           </div>
         </Link>
-        <Badge variant={"destructive"}>Under development</Badge>
+        <div className="flex flex-col md:flex-row gap-2">
+          <BlogToWeb></BlogToWeb>
+          <Badge variant={"destructive"}>Under development</Badge>
+        </div>
       </footer>
     </>
   );

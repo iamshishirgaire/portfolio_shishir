@@ -12,7 +12,8 @@
 # next.js
 /.next/
 /out/
-
+#velite files
+.velite
 # production
 /build
 

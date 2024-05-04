@@ -1,5 +1,5 @@
 "use client";
-import { SocialLinks } from "@/content/links";
+import { SocialLinks } from "../data/links";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedSection, AnimatedTitle } from "./animated-sec";

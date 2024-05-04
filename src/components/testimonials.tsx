@@ -1,4 +1,4 @@
-import { testimonials } from "@/content/testimonials";
+import { testimonials } from "../data/testimonials";
 import { getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Card, CardContent, CardHeader } from "./ui/card";

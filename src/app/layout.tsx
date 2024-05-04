@@ -1,17 +1,25 @@
+import TopBanner from "@/components/banner";
 import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
 import AppProvider from "@/components/provider/app-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import TopBanner from "@/components/banner";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
+import { Inter as FontSans } from "next/font/google";
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
-  title: "Shishir Gaire",
+  title: "Shishir Gaire's Personal Portfolio and blog.",
+  applicationName: "Shishir Gaire",
   description:
     "Personal website of Shishir Gaire showcasing his work and blog posts.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
 };
 
 export default function RootLayout({
@@ -21,7 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
         <AppProvider>
           <TopBanner></TopBanner>
           <div>{children}</div>

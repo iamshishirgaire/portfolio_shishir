@@ -6,7 +6,7 @@ import {
   CarouselNext,
   Carousel,
 } from "@/components/ui/carousel";
-import { projects } from "@/content/featured-projects";
+import { projects } from "../data/featured-projects";
 import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
