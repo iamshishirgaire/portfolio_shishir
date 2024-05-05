@@ -16,6 +16,7 @@ const blogPosts = defineCollection({
     content: s.mdx(),
     tags: s.array(s.string()),
     category: s.string(),
+    isFeatured: s.boolean().default(false),
   }),
 });
 
@@ -31,11 +32,14 @@ const posts = defineCollection({
     .object({
       slug: s.path(),
       title: s.string().max(99),
-      description: s.string().max(999).optional(),
+      description: s.string().max(999),
       date: s.isodate(),
       published: s.boolean().default(true),
-      tags: s.array(s.string()).optional(),
+      tags: s.array(s.string()).default([]),
       body: s.mdx(),
+      category: s.string(),
+      isFeatured: s.boolean().default(false),
+      displayImage: s.string(),
     })
     .transform(computedFields),
 });
