@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "2db369b310f4ba08",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tailwind-v4-beta.mdx",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -145,9 +158,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ab6c2f76fc96af78",
+  "active": "2db369b310f4ba08",
   "lastOpenFiles": [
     "react-v19-update.mdx",
+    "Codeblocks.mdx",
+    "Codeblocks.md",
     "tailwind-v4-beta.mdx"
   ]
 }

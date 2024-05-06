@@ -2,7 +2,6 @@ import PostsCategories from "./components/categories";
 import FeaturedPosts from "./components/featured";
 import LatestFeaturedPost from "./components/latest-featured";
 import LatestPosts from "./components/latestPosts";
-import BlogNavbar from "./components/navbar";
 import Tags from "./components/tags";
 
 export default function BlogPage() {

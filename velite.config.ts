@@ -17,6 +17,7 @@ const blogPosts = defineCollection({
     tags: s.array(s.string()),
     category: s.string(),
     isFeatured: s.boolean().default(false),
+    toc: s.toc(),
   }),
 });
 
@@ -40,6 +41,7 @@ const posts = defineCollection({
       category: s.string(),
       isFeatured: s.boolean().default(false),
       displayImage: s.string(),
+      toc: s.toc(),
     })
     .transform(computedFields),
 });
@@ -57,7 +59,8 @@ export default defineConfig({
   mdx: {
     rehypePlugins: [
       rehypeSlug,
-      [rehypePrettyCode, { theme: "github-dark" }],
+
+      [rehypePrettyCode, { theme: "dark-plus" }],
       [
         rehypeAutolinkHeadings,
         {

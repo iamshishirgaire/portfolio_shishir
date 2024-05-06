@@ -1,28 +1,24 @@
-import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
-
-interface CalloutProps {
-  children?: ReactNode;
-  type?: "default" | "warning" | "danger";
-}
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { AlertCircleIcon, Info } from "lucide-react";
 
 export function Callout({
   children,
-  type = "default",
-  ...props
-}: CalloutProps) {
+  variant,
+  title,
+  description,
+}: {
+  children: ReactNode;
+  variant: "destructive" | "default";
+  title: string;
+  description: string;
+}) {
   return (
-    <div
-      className={cn(
-        "my-6 items-start rounded-md border boder-l-4 p-4 w-full dark:max-w-none",
-        {
-          "border-red-900 bg-red-50 dark:prose": type === "danger",
-          "border-yellow-900 bg-yellow-50 dark:prose": type === "warning",
-        }
-      )}
-      {...props}
-    >
-      <div>{children}</div>
-    </div>
+    <Alert variant={variant} className="max-w-2xl">
+      {variant === "destructive" && <AlertCircleIcon></AlertCircleIcon>}
+      {variant === "default" && <Info></Info>}
+      <AlertTitle className="mx-2">{title}</AlertTitle>
+      <AlertDescription className="mx-2">{description}</AlertDescription>
+    </Alert>
   );
 }

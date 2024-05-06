@@ -37,3 +37,7 @@ export const getRandomBorder = () => {
   ];
   return colors[Math.floor(Math.random() * colors.length)];
 };
+
+export function absoluteUrl(path: string) {
+  return `${process.env.NEXT_PUBLIC_BASE_URL}${path}`;
+}
