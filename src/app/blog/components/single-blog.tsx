@@ -4,7 +4,6 @@ import { MDXContent } from "@/components/mdx-component";
 import { DashboardTableOfContents } from "./toc";
 
 export default function SingleBlog({ post }: { post: TPost }) {
-  console.log(post.toc);
   return (
     <div className="grid grid-cols-[2fr_6fr_2fr] gap-8 w-full mx-auto py-12 px-4 md:px-6">
       <div className="" />

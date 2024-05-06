@@ -6,7 +6,6 @@ import { getPostBySlug, getPosts } from "../repository/getPosts";
 import "@/app/blog/styles/mdx.css";
 import { Metadata } from "next";
 import { absoluteUrl } from "@/lib/utils";
-import { DashboardTableOfContents } from "../components/toc";
 import SingleBlog from "../components/single-blog";
 
 export async function generateMetadata({
@@ -53,6 +52,12 @@ export async function generateMetadata({
       images: [ogUrl.toString()],
     },
   };
+}
+export async function generateStaticParams() {
+  const posts = getPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
 }
 export default function BlogDetailPage({
   params,
