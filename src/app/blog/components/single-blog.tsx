@@ -9,11 +9,15 @@ export default function SingleBlog({ post }: { post: TPost }) {
       <div />
       <div className="max-w-4xl">
         <article className="prose min-w-full  prose-gray dark:prose-invert">
-          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-          <p className="text-gray-500 dark:text-gray-400 mb-8">
+          <h1 className="text-4xl sm:text-2xl whitespace-break-spaces font-bold mb-4">
+            {post.title}
+          </h1>
+          <p className="text-gray-500  dark:text-gray-400 mb-8">
             Posted on {new Date(post.date).toDateString()}
           </p>
-          <MDXContent code={post.body} />
+          <div className="  w-[95vw] lg:w-full">
+            <MDXContent code={post.body} />
+          </div>
         </article>
       </div>
       <div className="pr-[20px] hidden lg:flex sticky p-10 top-[10vh]  h-fit border rounded-md">
