@@ -25,7 +25,7 @@ export const getTags = () => {
 };
 
 export const getPostBySlug = (slug: string) => {
-  return posts.find((post) => post.slug === slug);
+  return posts.find((post) => post.slugAsParams === slug);
 };
 
 export const getLatestFeaturedPost = () => {

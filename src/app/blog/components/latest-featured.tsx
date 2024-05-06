@@ -12,6 +12,7 @@ const LatestFeaturedPost = () => {
           <div className="order-first md:order-last">
             <Image
               alt="Hero Image"
+              priority={true}
               className="rounded-lg bg-popover"
               height="400"
               src={latestFeatured.displayImage}

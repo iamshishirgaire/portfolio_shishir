@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { getCategories } from "../repository/getPosts";
 
 const PostsCategories = () => {
@@ -11,11 +10,11 @@ const PostsCategories = () => {
           Categories
         </h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="flex flex-wrap gap-2">
         {categories.map((category) => (
           <Link
             key={category}
-            className="inline-block border-l-8 border-blue-500 transition-colors duration-300 bg-gray-100 text-gray-700 px-3 py-5  rounded-md text-md font-medium hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+            className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
             href="#"
           >
             {category.toUpperCase()}

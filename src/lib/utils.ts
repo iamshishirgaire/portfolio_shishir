@@ -25,3 +25,15 @@ export const getErrorMessage = (error: unknown): string => {
 
   return message;
 };
+
+export const getRandomBorder = () => {
+  const colors = [
+    "border-blue-500",
+    "border-red-400",
+    "border-teal-500",
+    "border-green-500",
+    "border-pink-500",
+    "border-slate-500",
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+};

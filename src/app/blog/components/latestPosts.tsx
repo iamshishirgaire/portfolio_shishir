@@ -21,7 +21,7 @@ const LatestPosts = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {latestPosts.map((post) => {
-          return <Post post={post}></Post>;
+          return <Post key={post.slugAsParams} post={post}></Post>;
         })}
       </div>
     </section>

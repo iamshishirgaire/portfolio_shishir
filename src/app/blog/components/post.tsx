@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 
 const Post = ({ post }: { post: TPost }) => {
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 dark:bg-gray-950">
+    <div className="bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md border transition-shadow duration-300 ">
       <Link className="block" href={`/blog/${post.slugAsParams}`}>
         <Image
           alt="Blog post thumbnail"
@@ -31,7 +31,7 @@ const Post = ({ post }: { post: TPost }) => {
           {post.tags.map((tech, idx) => (
             <Badge
               key={idx}
-              className="px-3 py-1  select-none"
+              className="px-3 py-1 select-none"
               variant="outline"
             >
               {tech}

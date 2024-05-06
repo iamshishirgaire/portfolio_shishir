@@ -21,7 +21,7 @@ const FeaturedPosts = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {featuredPosts.map((post) => (
-          <Post post={post}></Post>
+          <Post key={post.slugAsParams} post={post}></Post>
         ))}
       </div>
     </section>

@@ -15,7 +15,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Shishir Gaire's Personal Portfolio and blog.",
+  title: "Shishir Gaire",
   applicationName: "Shishir Gaire",
   description:
     "Personal website of Shishir Gaire showcasing his work and blog posts.",
