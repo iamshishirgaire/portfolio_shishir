@@ -36,7 +36,6 @@ export default function RootLayout({
         )}
       >
         <AppProvider>
-          <TopBanner></TopBanner>
           <div>{children}</div>
           <Footer></Footer>
         </AppProvider>

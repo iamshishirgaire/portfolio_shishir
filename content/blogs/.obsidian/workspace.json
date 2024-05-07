@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -158,11 +157,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2db369b310f4ba08",
+  "active": "ab6c2f76fc96af78",
   "lastOpenFiles": [
-    "react-v19-update.mdx",
     "Codeblocks.mdx",
-    "Codeblocks.md",
-    "tailwind-v4-beta.mdx"
+    "react-v19-update.mdx",
+    "tailwind-v4-beta.mdx",
+    "Codeblocks.md"
   ]
 }
