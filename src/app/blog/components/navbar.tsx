@@ -1,7 +1,12 @@
 import { ThemeToggler } from "@/components/theme-toggler";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { SheetTrigger, Sheet, SheetContent } from "@/components/ui/sheet";
+import {
+  SheetTrigger,
+  Sheet,
+  SheetContent,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { MenuIcon, SearchIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -45,31 +50,7 @@ const BlogNavbar = () => {
           </SheetTrigger>
           <SheetContent side="right">
             <div className="grid gap-2 py-6">
-              <Link
-                className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2 "
-                href="/#projects"
-              >
-                Projects
-              </Link>
-              <Link
-                className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2"
-                href="/#skills-section"
-              >
-                Techstack
-              </Link>
-              <Link
-                className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2 "
-                href="/blog"
-              >
-                Blog
-              </Link>
-              <Link
-                className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2 "
-                href="/#contact-section"
-                scroll={true}
-              >
-                Contact
-              </Link>
+              <h1>To be implemented</h1>
             </div>
           </SheetContent>
         </Sheet>
@@ -79,3 +60,22 @@ const BlogNavbar = () => {
 };
 
 export default BlogNavbar;
+
+export function LinkComponent({
+  href,
+  displayText,
+}: {
+  href: string;
+  displayText: string;
+}) {
+  return (
+    <SheetClose asChild>
+      <Link
+        className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2 "
+        href={href}
+      >
+        {displayText}
+      </Link>
+    </SheetClose>
+  );
+}

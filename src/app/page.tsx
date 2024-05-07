@@ -12,7 +12,7 @@ export default function Home() {
     <main className="overflow-hidden">
       <Navbar></Navbar>
 
-      <div className="flex flex-col">
+      <div className="flex mt-20 flex-col">
         <ScrollToTop></ScrollToTop>
         <div className="flex-1 ">
           <section
@@ -45,10 +45,7 @@ export default function Home() {
           >
             <TimeLine></TimeLine>
           </section>{" "}
-          <section
-            className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-zinc-950 "
-            id="contact-section"
-          >
+          <section className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-zinc-950 ">
             <ContactMe></ContactMe>
           </section>
         </div>

@@ -72,8 +72,8 @@ const Testimonials = () => {
 
             <CarouselItem className="lg:basis-1/2 xl:basis-1/3"></CarouselItem>
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden lg:flex" />
+          <CarouselNext className="hidden lg:flex" />
         </Carousel>
       </div>
     </section>

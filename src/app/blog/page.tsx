@@ -8,7 +8,7 @@ export default function BlogPage() {
   return (
     <div className="bg-background">
       <LatestFeaturedPost></LatestFeaturedPost>
-      <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
+      <main className="container border-t mx-auto px-4 md:px-6 py-8 md:py-12">
         <Tags></Tags>
         <LatestPosts></LatestPosts>
         <PostsCategories></PostsCategories>

@@ -3,11 +3,12 @@ import Link from "next/link";
 import { ThemeToggler } from "./theme-toggler";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { LinkComponent } from "@/app/blog/components/navbar";
 
 const Navbar = () => {
   return (
     <>
-      <header className="px-4 lg:px-32 h-14 flex items-center sticky border-b-2 border-border/40 top-0 z-10 bg-background/90 backdrop-blur-sm justify-between">
+      <header className="px-4 lg:px-32 h-14 fixed w-full flex items-center border-b-2 border-border/40 top-0 z-10 bg-background/90 backdrop-blur-sm justify-between">
         <Link className="flex items-center justify-center" href="/">
           <p className="font-extrabold text-3xl">
             shishir<span className="text-primary">.dev</span>
@@ -54,31 +55,10 @@ const Navbar = () => {
           </SheetTrigger>
           <SheetContent side="right">
             <div className="grid gap-2 py-6">
-              <Link
-                className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2 "
-                href="/#projects"
-              >
-                Projects
-              </Link>
-              <Link
-                className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2"
-                href="/#skills-section"
-              >
-                Techstack
-              </Link>
-              <Link
-                className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2 "
-                href="/blog"
-              >
-                Blog
-              </Link>
-              <Link
-                className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2 "
-                href="/#contact-section"
-                scroll={true}
-              >
-                Contact
-              </Link>
+              <LinkComponent href="/#projects" displayText="Projects" />
+              <LinkComponent href="/#skills-section" displayText="Techstack" />
+              <LinkComponent href="/blog" displayText="Blog" />
+              <LinkComponent href="/#contact-section" displayText="Contact" />
             </div>
           </SheetContent>
         </Sheet>

@@ -130,12 +130,12 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
 
 export function FloatingToc({ post }: { post: TPost }) {
   return (
-    <div className="fixed  bottom-0 right-0 bg-primary text-white   flex lg:hidden m-10  rounded-md">
+    <div className="fixed  bottom-0 right-0 bg-primary text-white rounded-full   flex lg:hidden m-5">
       <Sheet>
-        <SheetTrigger className=" p-5 rounded-full">
+        <SheetTrigger className=" p-4">
           <FolderTree className="size-5"></FolderTree>
         </SheetTrigger>
-        <SheetContent side={"top"}>
+        <SheetContent side={"bottom"} className="pb-10">
           <SheetHeader></SheetHeader>
 
           <DashboardTableOfContents toc={post.toc} />

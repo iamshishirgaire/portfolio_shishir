@@ -14,7 +14,7 @@ export default function AppProvider({
       enableSystem
       disableTransitionOnChange
     >
-      <NextTopLoader color="red" />
+      {/* <NextTopLoader color="red" showSpinner={false} /> */}
 
       {children}
       <Toaster richColors position="top-right" className="mt-10" closeButton />
