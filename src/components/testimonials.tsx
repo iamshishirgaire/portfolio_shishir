@@ -32,7 +32,7 @@ const Testimonials = () => {
             loop: true,
             startIndex: 1,
           }}
-          className="py-32 m-10"
+          className="py-32 lg:m-10"
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (

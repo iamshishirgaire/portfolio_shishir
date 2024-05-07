@@ -3,7 +3,7 @@ import { AnimatedTitle } from "./animated-sec";
 
 const TimeLine = () => {
   return (
-    <section id="contact-section" className="w-full py-12 md:py-24 lg:py-32">
+    <section className="w-full py-12 px-4 md:py-24 lg:py-32">
       <div className="container grid max-w-5xl items-center justify-center gap-8 px-4 text-center md:gap-12 md:px-6 lg:grid-cols-2 lg:text-left xl:max-w-6xl xl:gap-16">
         <AnimatedTitle>
           <div className="space-y-4 text-center mb-10">

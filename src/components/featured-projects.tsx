@@ -33,7 +33,7 @@ export default function FeaturedProjects() {
           loop: true,
           startIndex: 1,
         }}
-        className="m-14 lg:m-20"
+        className="m-5 lg:m-20"
       >
         <CarouselContent>
           {projects.map((project, index) => (

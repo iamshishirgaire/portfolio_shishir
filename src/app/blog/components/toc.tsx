@@ -7,6 +7,7 @@ import { useMounted } from "@/hooks/use-mounted";
 import { TPost } from "../repository/getPosts";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -137,7 +138,6 @@ export function FloatingToc({ post }: { post: TPost }) {
         </SheetTrigger>
         <SheetContent side={"bottom"} className="pb-10">
           <SheetHeader></SheetHeader>
-
           <DashboardTableOfContents toc={post.toc} />
         </SheetContent>
       </Sheet>

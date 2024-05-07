@@ -45,7 +45,10 @@ export default function Home() {
           >
             <TimeLine></TimeLine>
           </section>{" "}
-          <section className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-zinc-950 ">
+          <section
+            id="contact-section"
+            className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-zinc-950"
+          >
             <ContactMe></ContactMe>
           </section>
         </div>

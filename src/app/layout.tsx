@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 import { Inter as FontSans } from "next/font/google";
 import Navbar from "@/components/navbar";
+import NextTopLoader from "nextjs-toploader";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -37,6 +38,8 @@ export default function RootLayout({
         )}
       >
         <AppProvider>
+          <NextTopLoader color="red" showSpinner={false} />
+
           <div>{children}</div>
           <Footer></Footer>
         </AppProvider>
