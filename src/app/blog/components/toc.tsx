@@ -2,19 +2,16 @@
 
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
-import { useMounted } from "@/hooks/use-mounted";
-import { TPost } from "../repository/getPosts";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useMounted } from "@/hooks/use-mounted";
+import { cn } from "@/lib/utils";
 import { FolderTree } from "lucide-react";
+import { TPost } from "../repository/getPosts";
 
 interface TocEntry {
   items?: TocEntry[];
@@ -137,7 +134,6 @@ export function FloatingToc({ post }: { post: TPost }) {
           <FolderTree className="size-5"></FolderTree>
         </SheetTrigger>
         <SheetContent side={"bottom"} className="pb-10">
-          <SheetHeader></SheetHeader>
           <DashboardTableOfContents toc={post.toc} />
         </SheetContent>
       </Sheet>

@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { MenuIcon, SearchIcon } from "lucide-react";
 import Link from "next/link";
+import SearchForm from "./search-form";
 
 const BlogNavbar = () => {
   return (
@@ -26,14 +27,7 @@ const BlogNavbar = () => {
               <SearchIcon className=" text-gray-500 dark:text-gray-400" />
             </Button>
           </div>
-          <div className="relative hidden md:block w-full max-w-md">
-            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400" />
-            <Input
-              className="w-full rounded-md bg-white px-10 py-2 text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-500 dark:bg-gray-950 dark:text-gray-50 dark:focus:ring-gray-400"
-              placeholder="Search blog posts..."
-              type="search"
-            />
-          </div>
+          <SearchForm></SearchForm>
           <div className="p-1">
             <ThemeToggler></ThemeToggler>
           </div>
