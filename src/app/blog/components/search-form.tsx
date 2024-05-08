@@ -1,11 +1,12 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 const SearchForm = () => {
   const router = useRouter();
+  const params = useSearchParams();
   const [inputValue, setInputValue] = useState("");
 
   return (
@@ -13,7 +14,9 @@ const SearchForm = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          router.push(`/blog/search?q=${inputValue}`);
+          const query = new URLSearchParams();
+          query.set("q", inputValue);
+          router.push(`/blog/search?${query.toString()}`);
         }}
       >
         <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400" />

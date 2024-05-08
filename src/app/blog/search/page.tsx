@@ -1,111 +1,49 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
-import Link from "next/link";
-import { getPosts } from "../repository/getPosts";
+"use client";
+import { useSearchParams } from "next/navigation";
+import BlogFooterPagination from "./components/pagination";
 import SearchTile from "./components/search-tile";
+import SearchFilter from "./components/search_filter";
+import { getPostByQueryFilter } from "../repository/getPosts";
 
 export default function BlogSearch() {
-  const posts = getPosts();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams);
+  const query = params.get("q");
+  const category = params.get("category");
+  const tag = params.get("tag");
+  const posts = getPostByQueryFilter({
+    query: query,
+    categories: category ? [category] : null,
+    tags: tag ? [tag] : null,
+  });
+
   return (
     <div className="container h-full px-4 py-8 md:px-6 lg:py-12">
       <div className="grid gap-8 min-h-[78vh]  lg:grid-cols-[400px_1fr]">
         <div className="space-y-6  flex  lg:sticky p-10 top-[10vh]  h-fit">
-          <div className="space-y-4  min-w-[250px] w-full">
-            <h2 className="text-2xl font-bold">Filters</h2>
-            <Accordion collapsible type="single">
-              <AccordionItem value="categories">
-                <AccordionTrigger className="text-lg font-medium">
-                  Categories
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="space-y-2">
-                    <Label className="flex items-center gap-2">
-                      <Checkbox id="category-design" />
-                      Design
-                    </Label>
-                    <Label className="flex items-center gap-2">
-                      <Checkbox id="category-development" />
-                      Development
-                    </Label>
-                    <Label className="flex items-center gap-2">
-                      <Checkbox id="category-marketing" />
-                      Marketing
-                    </Label>
-                    <Label className="flex items-center gap-2">
-                      <Checkbox id="category-business" />
-                      Business
-                    </Label>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="tags">
-                <AccordionTrigger className="text-lg font-medium">
-                  Tags
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="space-y-2">
-                    <Label className="flex items-center gap-2">
-                      <Checkbox id="tag-react" />
-                      React
-                    </Label>
-                    <Label className="flex items-center gap-2">
-                      <Checkbox id="tag-tailwind" />
-                      Tailwind
-                    </Label>
-                    <Label className="flex items-center gap-2">
-                      <Checkbox id="tag-seo" />
-                      SEO
-                    </Label>
-                    <Label className="flex items-center gap-2">
-                      <Checkbox id="tag-productivity" />
-                      Productivity
-                    </Label>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
+          <SearchFilter></SearchFilter>
         </div>
         <div className="space-y-8">
           <div className="space-y-6">
             <div className="grid gap-6 grid-cols-1">
+              {
+                /* Empty state */
+                posts.length === 0 && (
+                  <div className="flex items-center justify-center h-64">
+                    <p className="text-lg font-medium text-gray-500">
+                      No results found
+                    </p>
+                  </div>
+                )
+              }
               {posts.map((post) => (
-                <SearchTile {...post} />
+                <SearchTile key={post.slugAsParams} {...post} />
               ))}
             </div>
-            <div className="flex justify-center">
-              <Pagination>
-                <PaginationContent>
-                  <PaginationItem>
-                    <PaginationPrevious href="#" />
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#">1</PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationEllipsis />
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationNext href="#" />
-                  </PaginationItem>
-                </PaginationContent>
-              </Pagination>
-            </div>
+            {
+              /* Pagination */
+              posts.length > 0 && <BlogFooterPagination></BlogFooterPagination>
+            }
           </div>
         </div>
       </div>
