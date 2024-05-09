@@ -4,7 +4,7 @@ import { getPostByQueryFilter } from "../repository/getPosts";
 import BlogFooterPagination from "./components/pagination";
 import SearchTile from "./components/search-tile";
 import SearchFilter from "./components/search_filter";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 function BlogSearch() {
   const searchParams = useSearchParams();
@@ -12,12 +12,14 @@ function BlogSearch() {
   const query = params.get("q");
   const category = params.get("category");
   const tag = params.get("tag");
-
+  const currentPage = parseInt(params.get("page") ?? "0");
   const posts = getPostByQueryFilter({
     query: query,
     categories: category ? [category] : null,
     tags: tag ? [tag] : null,
   });
+  const [page, setPage] = useState<number>(currentPage);
+  const postsInView = posts.slice(page * 10, page * 10 + 10);
 
   return (
     <div className="container h-full px-4 py-8 md:px-6 lg:py-12">
@@ -38,11 +40,17 @@ function BlogSearch() {
                   </div>
                 )
               }
-              {posts.map((post) => (
+              {postsInView.map((post) => (
                 <SearchTile key={post.slugAsParams} {...post} />
               ))}
             </div>
-            {posts.length > 0 && <BlogFooterPagination></BlogFooterPagination>}
+            {posts.length > 0 && (
+              <BlogFooterPagination
+                onPageSet={setPage}
+                totalPosts={posts.length}
+                currentPage={currentPage}
+              ></BlogFooterPagination>
+            )}
           </div>
         </div>
       </div>
