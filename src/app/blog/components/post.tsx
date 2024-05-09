@@ -20,7 +20,7 @@ const Post = ({ post }: { post: TPost }) => {
           width={400}
         />
         <div className="p-4">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-gray-50 mb-2">
+          <h3 className="text-lg min-h-10 font-bold text-gray-900 dark:text-gray-50 mb-2">
             {post.title}
           </h3>
           <p className="text-gray-600 dark:text-gray-400 line-clamp-3">
@@ -32,7 +32,7 @@ const Post = ({ post }: { post: TPost }) => {
             <Badge
               key={idx}
               className="px-3 py-1 select-none"
-              variant="outline"
+              variant="secondary"
             >
               {tech}
             </Badge>

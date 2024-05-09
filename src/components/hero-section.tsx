@@ -26,7 +26,7 @@ const HeroSection = () => {
                 <Button>Get in touch</Button>
               </Link>
               <Link href={SocialLinks.resume}>
-                <Button variant={"ghost"}>Download Resume</Button>
+                <Button variant={"ghost"}>View Resume</Button>
               </Link>
             </div>
           </div>

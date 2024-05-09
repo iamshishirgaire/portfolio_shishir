@@ -18,7 +18,7 @@ export const getPostByQueryFilter = ({
   categories: string[] | null;
   tags: string[] | null;
 }) => {
-  const publishedPosts = posts.filter((post) => post.published);
+  const publishedPosts = getPosts();
   if (!query && !categories && !tags) return publishedPosts;
   if (query && !categories && !tags) {
     return publishedPosts.filter((post) => {
@@ -34,7 +34,7 @@ export const getPostByQueryFilter = ({
   if (query && categories && !tags) {
     return publishedPosts.filter((post) => {
       return (
-        post.title.toLowerCase().includes(query.toLowerCase()) &&
+        post.title.toLowerCase().includes(query.toLowerCase()) ||
         categories.includes(post.category)
       );
     });
@@ -42,7 +42,7 @@ export const getPostByQueryFilter = ({
   if (query && !categories && tags) {
     return publishedPosts.filter((post) => {
       return (
-        post.title.toLowerCase().includes(query.toLowerCase()) &&
+        post.title.toLowerCase().includes(query.toLowerCase()) ||
         tags.some((t) => post.tags.includes(t))
       );
     });
@@ -58,8 +58,8 @@ export const getPostByQueryFilter = ({
   if (query && categories && tags) {
     return publishedPosts.filter((post) => {
       return (
-        post.title.toLowerCase().includes(query.toLowerCase()) &&
-        categories.includes(post.category) &&
+        post.title.toLowerCase().includes(query.toLowerCase()) ||
+        categories.includes(post.category) ||
         tags.some((t) => post.tags.includes(t))
       );
     });

@@ -10,6 +10,7 @@ import {
 import { MenuIcon, SearchIcon } from "lucide-react";
 import Link from "next/link";
 import SearchForm from "./search-form";
+import { Suspense } from "react";
 
 const BlogNavbar = () => {
   return (
@@ -27,7 +28,9 @@ const BlogNavbar = () => {
               <SearchIcon className=" text-gray-500 dark:text-gray-400" />
             </Button>
           </div>
-          <SearchForm></SearchForm>
+          <Suspense>
+            <SearchForm></SearchForm>
+          </Suspense>
           <div className="p-1">
             <ThemeToggler></ThemeToggler>
           </div>

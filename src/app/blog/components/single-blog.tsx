@@ -5,7 +5,7 @@ import { DashboardTableOfContents, FloatingToc } from "./toc";
 
 export default function SingleBlog({ post }: { post: TPost }) {
   return (
-    <div className="grid  sm:grid-cols-1 lg:grid-cols-[2fr_6fr_2fr] gap-8 w-full mx-auto py-12 px-4 md:px-6">
+    <div className="grid scroll-auto  sm:grid-cols-1 lg:grid-cols-[2fr_6fr_2fr] gap-8 w-full mx-auto py-12 px-4 md:px-6">
       <div />
       <FloatingToc post={post} />
       <div className="max-w-4xl">

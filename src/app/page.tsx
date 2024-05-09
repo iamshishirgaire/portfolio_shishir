@@ -9,10 +9,15 @@ import TimeLine from "@/components/timeline";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
+    <main
+      className="overflow-hidden"
+      style={{
+        scrollBehavior: "smooth",
+      }}
+    >
       <Navbar></Navbar>
 
-      <div className="flex mt-20 flex-col">
+      <div className="flex pt-20 flex-col">
         <ScrollToTop></ScrollToTop>
         <div className="flex-1 ">
           <section

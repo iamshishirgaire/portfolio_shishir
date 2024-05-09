@@ -1,11 +1,12 @@
 "use client";
 import { useSearchParams } from "next/navigation";
+import { getPostByQueryFilter } from "../repository/getPosts";
 import BlogFooterPagination from "./components/pagination";
 import SearchTile from "./components/search-tile";
 import SearchFilter from "./components/search_filter";
-import { getPostByQueryFilter } from "../repository/getPosts";
+import { Suspense } from "react";
 
-export default function BlogSearch() {
+function BlogSearch() {
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
   const query = params.get("q");
@@ -48,5 +49,12 @@ export default function BlogSearch() {
         </div>
       </div>
     </div>
+  );
+}
+export default function BlogPage() {
+  return (
+    <Suspense>
+      <BlogSearch></BlogSearch>
+    </Suspense>
   );
 }
