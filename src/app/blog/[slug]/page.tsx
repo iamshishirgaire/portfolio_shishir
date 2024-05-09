@@ -1,12 +1,9 @@
-import { MDXContent } from "@/components/mdx-component";
-import { Avatar } from "@/components/ui/avatar";
-import Image from "next/image";
-import { notFound } from "next/navigation";
-import { getPostBySlug, getPosts } from "../repository/getPosts";
 import "@/app/blog/styles/mdx.css";
-import { Metadata } from "next";
 import { absoluteUrl } from "@/lib/utils";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import SingleBlog from "../components/single-blog";
+import { getPostBySlug, getPosts } from "../repository/getPosts";
 
 export async function generateMetadata({
   params,
@@ -25,7 +22,7 @@ export async function generateMetadata({
 
   const ogUrl = new URL(`${url}/api/og`);
   ogUrl.searchParams.set("heading", doc.title ?? doc.description);
-  ogUrl.searchParams.set("type", "Documentation");
+  ogUrl.searchParams.set("type", "post");
   ogUrl.searchParams.set("mode", "dark");
 
   return {
@@ -34,6 +31,9 @@ export async function generateMetadata({
     openGraph: {
       title: doc.title,
       description: doc.description,
+      authors: ["Shishir Gaire"],
+      publishedTime: doc.date,
+      countryName: "Nepal",
       type: "article",
       url: absoluteUrl(doc.slug),
       images: [

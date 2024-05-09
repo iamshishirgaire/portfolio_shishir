@@ -19,6 +19,11 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "Shishir Gaire",
   applicationName: "Shishir Gaire",
+  authors: [
+    {
+      name: "Shishir Gaire",
+    },
+  ],
   description:
     "Personal website of Shishir Gaire showcasing his work and blog posts.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
