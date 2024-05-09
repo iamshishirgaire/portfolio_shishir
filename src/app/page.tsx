@@ -32,27 +32,27 @@ export default function Home() {
           >
             <FeaturedProjects></FeaturedProjects>
           </section>
-          <section
+          {/* <section
             className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black"
             id="testimonials-section"
           >
-            <Testimonials></Testimonials>
+            <Testimonials></Testimonials>{" "}
+          </section>{" "} */}
+          <section
+            className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black"
+            id="skills-section"
+          >
+            <SkillsSection></SkillsSection>{" "}
           </section>{" "}
           <section
             className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-zinc-950"
-            id="skills-section"
-          >
-            <SkillsSection></SkillsSection>
-          </section>
-          <section
-            className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black"
-            id="testimonials-section"
+            id="education-section"
           >
             <TimeLine></TimeLine>
           </section>{" "}
           <section
             id="contact-section"
-            className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-zinc-950"
+            className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black"
           >
             <ContactMe></ContactMe>
           </section>

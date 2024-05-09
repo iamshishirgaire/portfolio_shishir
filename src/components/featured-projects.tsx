@@ -40,7 +40,7 @@ export default function FeaturedProjects() {
             <CarouselItem key={index}>
               <Card className="dark:bg-black">
                 <CardContent>
-                  <div className="grid grid-cols-1  hover:bg-gray-10 md:grid-cols-2 gap-6 p-2 md:p-6">
+                  <div className="grid grid-cols-1 items-center hover:bg-gray-10 md:grid-cols-2 gap-6 p-2 md:p-6">
                     <div className="flex flex-col h-full justify-between">
                       <div className="space-y-4">
                         <h2 className="text-xl lg:text-3xl font-bold">
@@ -62,26 +62,30 @@ export default function FeaturedProjects() {
                         ))}
                       </div>
                       <div className="flex flex-col lg:flex-row gap-2">
-                        <Link href={project.githubLink}>
-                          <Button variant={"outline"} size={"sm"}>
-                            <Github className="size-4 me-3 mb-1"></Github>
-                            Github
-                          </Button>
-                        </Link>
-                        <Link href={project.liveLink}>
-                          <Button size={"sm"}>
-                            <Globe className="size-4 me-3 mb-1"></Globe>
-                            Live Demo
-                          </Button>
-                        </Link>
+                        {project.githubLink && (
+                          <Link href={project.githubLink}>
+                            <Button variant={"outline"} size={"sm"}>
+                              <Github className="size-4 me-3 mb-1"></Github>
+                              Github
+                            </Button>
+                          </Link>
+                        )}
+                        {project.liveLink && (
+                          <Link href={project.liveLink}>
+                            <Button variant={"outline"} size={"sm"}>
+                              <Globe className="size-4 me-3 mb-1"></Globe>
+                              Live
+                            </Button>
+                          </Link>
+                        )}
                       </div>
                     </div>
 
-                    <div className="rounded-md overflow-hidden">
+                    <div className="rounded-md overflow-hidden border h-[250px]">
                       <Image
                         alt={project.title}
-                        className="w-full h-full object-cover"
-                        height={600}
+                        className="w-full h-full object-left-bottom rounded-md"
+                        height={500}
                         src={project.imgUrl}
                         style={{
                           objectFit: "cover",

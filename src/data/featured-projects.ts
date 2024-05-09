@@ -1,40 +1,55 @@
 export const projects = [
   {
     imgUrl:
-      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Amigo Live",
+      "https://raw.githubusercontent.com/iamshishirgaire/image-resources/master/portfolio/Projects/sqlpg.png",
+    title: "Sql Playground",
     description:
-      "Live streaming Video Application built with flutter and agora sdk",
-    stack: ["Flutter", "Dart", "Agora SDK", "Firebase"],
-    liveLink: "https://amigo-live.web.app/",
-    githubLink: "https://github.com",
+      "An online web based sql editor to interact with Neon database on the fly and ai query suggestions.",
+    stack: [
+      "NextJs",
+      "Typescript",
+      "Tailwind Css",
+      "Neon Database",
+      "Codemirror",
+      "OpenAI",
+    ],
+    liveLink: "https://sql-playground-alpha.vercel.app/",
+    githubLink: "https://github.com/iamshishirgaire/SqlPlayground",
   },
   {
     imgUrl:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Chatify",
-    description: "Real-time messaging app with end-to-end encryption",
-    stack: ["React", "Node", "Express", "Socket.io"],
-    liveLink: "https://amigo-live.web.app/",
-    githubLink: "https://github.com",
-  },
-  {
-    imgUrl:
-      "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "SnapMeal",
+      "https://raw.githubusercontent.com/iamshishirgaire/image-resources/master/portfolio/Projects/vidmeet.png",
+    title: "Vidmeet",
     description:
-      "Food delivery app with image recognition and other ai features",
-    stack: ["React Native", "Node", "Express", "TensorFlow"],
+      "Zoom like video conferencing app for teams built with NextJs and  Stream sdk",
+    stack: [
+      "NextJs",
+      "Stream",
+      "Tailwind Css",
+      "Typescript",
+      "Clerk",
+      "Shadcn UI",
+    ],
     liveLink: "https://amigo-live.web.app/",
     githubLink: "https://github.com",
   },
   {
     imgUrl:
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "FitMate",
-    description: "Fitness tracking app with personalized workout plans",
-    stack: ["React Native", "Node", "Express", "MongoDB"],
-    liveLink: "https://amigo-live.web.app/",
-    githubLink: "https://github.com",
+      "https://raw.githubusercontent.com/iamshishirgaire/image-resources/master/portfolio/Projects/speech.png",
+    title: "Speech Assessment",
+    description:
+      "A command line tool to assess your speech and provide feedback using azure cognitive speech sdk",
+    stack: ["C++", "cmake", "Azure", "Cognitive Speech SDK"],
+    githubLink: "git@github.com:iamshishirgaire/oopslabminor_speechass.git",
+  },
+  {
+    imgUrl:
+      "https://raw.githubusercontent.com/iamshishirgaire/image-resources/master/portfolio/Projects/quantum_docs.png",
+    title: "Quantum Fetch",
+    description:
+      "A documentation website for a flutter package to simplify typesafe data fetching.",
+    stack: ["NextJs", "Nextra", "Documentation", "SSG"],
+    liveLink: "https://quantum-fetch.vercel.app/",
+    githubLink: "https://github.com/iamshishirgaire/quantum_fetch",
   },
 ];
