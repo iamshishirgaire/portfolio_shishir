@@ -1,5 +1,6 @@
 import {
   Pagination,
+  PaginationContent,
   PaginationEllipsis,
   PaginationItem,
   PaginationLink,
@@ -10,22 +11,29 @@ import React from "react";
 
 const BlogFooterPagination = () => {
   return (
-    <Pagination>
-      <PaginationPrevious />
-      <PaginationItem>
-        <PaginationLink>1</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink>2</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink>3</PaginationLink>
-      </PaginationItem>
-      <PaginationEllipsis />
-      <PaginationItem>
-        <PaginationLink>10</PaginationLink>
-      </PaginationItem>
-      <PaginationNext />
+    <Pagination className="pt-32">
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive>
+            2
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">3</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" />
+        </PaginationItem>
+      </PaginationContent>
     </Pagination>
   );
 };

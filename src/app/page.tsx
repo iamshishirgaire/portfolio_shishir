@@ -17,11 +17,11 @@ export default function Home() {
     >
       <Navbar></Navbar>
 
-      <div className="flex pt-20 flex-col">
+      <div className="flex  flex-col">
         <ScrollToTop></ScrollToTop>
-        <div className="flex-1 ">
+        <div className="flex-1">
           <section
-            className="w-full h-[100vh] py-12 md:py-24 lg:py-32 xl:py-48 dark:bg-black"
+            className="w-full pt-32 h-[100vh] py-12 md:py-24 lg:py-32 xl:py-48 dark:bg-black"
             id="hero-section"
           >
             <HeroSection></HeroSection>

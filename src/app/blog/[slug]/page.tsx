@@ -71,41 +71,5 @@ export default function BlogDetailPage({
     notFound();
   }
 
-  return (
-    <SingleBlog post={post}></SingleBlog>
-    // <div className="flex">
-    //   <div className="w-[300px]"></div>
-    //   <div className="max-w-4xl  bg-red-300 flex flex-col items-start   pt-10 m-10">
-    //     <div className="flex max-w-4xl flex-col justify-start items-start">
-    //       <h1 className="font-bold text-3xl">{post.title}</h1>
-    //       <h3 className="font-semibold text-xl my-4">{post.description}</h3>
-    //       <div className="  my-5 p-3   flex flex-row gap-4">
-    //         <Avatar>
-    //           <Image
-    //             className="object-cover"
-    //             alt="Shishir Gaire"
-    //             src="/images/profile.jpg"
-    //             height={50}
-    //             width={50}
-    //           />
-    //         </Avatar>
-    //         <div className="flex flex-col">
-    //           <p className="font-semibold">Shishir Gaire</p>
-    //           <p className="text-gray-500">
-    //             {new Date(post.date).toDateString()}
-    //           </p>
-    //         </div>
-    //       </div>
-    //       <hr className="bg-gray-500 w-full mb-10" />
-    //     </div>
-
-    //     <article className="prose-sm lg:prose-xl">
-    //       <MDXContent code={post.body} />
-    //     </article>
-    //   </div>
-    //   <div className="bg-background/50 border-r hidden lg:flex border-border/25 pt-10 w-[20rem] max-w-xl">
-    //     <DashboardTableOfContents toc={post.toc}></DashboardTableOfContents>
-    //   </div>
-    // </div>
-  );
+  return <SingleBlog post={post}></SingleBlog>;
 }

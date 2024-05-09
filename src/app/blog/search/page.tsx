@@ -12,6 +12,7 @@ function BlogSearch() {
   const query = params.get("q");
   const category = params.get("category");
   const tag = params.get("tag");
+
   const posts = getPostByQueryFilter({
     query: query,
     categories: category ? [category] : null,
@@ -41,10 +42,7 @@ function BlogSearch() {
                 <SearchTile key={post.slugAsParams} {...post} />
               ))}
             </div>
-            {
-              /* Pagination */
-              posts.length > 0 && <BlogFooterPagination></BlogFooterPagination>
-            }
+            {posts.length > 0 && <BlogFooterPagination></BlogFooterPagination>}
           </div>
         </div>
       </div>

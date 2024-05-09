@@ -6,32 +6,33 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Label } from "@radix-ui/react-dropdown-menu";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Filter } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { getCategories, getTags } from "../../repository/getPosts";
-import { useRouter, useSearchParams } from "next/navigation";
-import { Checkbox } from "@/components/ui/checkbox";
 
 const SearchFilter = () => {
   const tags = getTags();
   const categories = getCategories();
+
   const [paramsCategories, setparamsCategories] = useState<string[]>([]);
   const [paramsTags, setparamsTags] = useState<string[]>([]);
   const router = useRouter();
   return (
     <div className="space-y-4  min-w-[250px] w-full">
       <h2 className="text-2xl font-bold">Filters</h2>
-      <Accordion collapsible type="single">
+      <Accordion type="multiple" className="no-underline">
         <AccordionItem value="categories">
-          <AccordionTrigger className="text-lg font-medium">
+          <AccordionTrigger className="text-lg  font-medium">
             Categories
           </AccordionTrigger>
           <AccordionContent>
             <div className="space-y-2">
               {categories.map((category) => (
-                <Label key={category} className="flex items-center gap-2">
+                <div key={category} className="items-top flex space-x-2">
                   <Checkbox
+                    className="scale-105"
                     id={`category-${category}`}
                     checked={paramsCategories.includes(category)}
                     onCheckedChange={(e) => {
@@ -43,9 +44,15 @@ const SearchFilter = () => {
                         );
                       }
                     }}
-                  />
-                  {category}
-                </Label>
+                  ></Checkbox>
+                  <label
+                    key={category}
+                    htmlFor={`category-${category}`}
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    {category}
+                  </label>
+                </div>
               ))}
             </div>
           </AccordionContent>
@@ -57,8 +64,9 @@ const SearchFilter = () => {
           <AccordionContent>
             <div className="space-y-2">
               {tags.map((tag) => (
-                <Label key={tag} className="flex items-center gap-2">
+                <div key={tag} className="items-top flex space-x-2">
                   <Checkbox
+                    className="scale-105"
                     id={`tag-${tag}`}
                     checked={paramsTags.includes(tag)}
                     onCheckedChange={(e) => {
@@ -68,9 +76,15 @@ const SearchFilter = () => {
                         setparamsTags(paramsTags.filter((t) => t !== tag));
                       }
                     }}
-                  />
-                  {tag}
-                </Label>
+                  ></Checkbox>
+                  <label
+                    key={tag}
+                    htmlFor={`tag-${tag}`}
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    {tag}
+                  </label>
+                </div>
               ))}
             </div>
           </AccordionContent>

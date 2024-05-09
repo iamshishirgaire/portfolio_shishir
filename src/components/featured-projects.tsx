@@ -50,11 +50,11 @@ export default function FeaturedProjects() {
                           {project.description}
                         </p>
                       </div>
-                      <div className="flex flex-wrap gap-2 mb-10 mt-2">
+                      <div className="flex flex-wrap min-h-16 gap-2  mb-10 mt-2">
                         {project.stack.map((tech, idx) => (
                           <Badge
                             key={idx}
-                            className="px-3 py-1  select-none"
+                            className="px-3 py-1 h-fit  select-none"
                             variant="outline"
                           >
                             {tech}
