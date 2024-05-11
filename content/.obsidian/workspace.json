@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "react-v19-update.mdx",
+                "file": "blogs/Tailwind V4.0 Alpha Update.mdx",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "react-v19-update.mdx",
+                "file": "blogs/Tailwind V4.0 Alpha Update.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "react-v19-update.mdx",
+                "file": "blogs/Tailwind V4.0 Alpha Update.mdx",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "react-v19-update.mdx"
+                "file": "blogs/Tailwind V4.0 Alpha Update.mdx"
               }
             }
           }
@@ -148,6 +148,8 @@
   },
   "active": "be1f0541ef179688",
   "lastOpenFiles": [
+    "blogs/React 19 Changes Everything!!.mdx",
+    "blogs/Tailwind V4.0 Alpha Update.mdx",
     "react-v19-update.md",
     "react-v19-update.mdx",
     "react-19-update.md"
