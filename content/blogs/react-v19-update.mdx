@@ -1,18 +1,144 @@
 ---
-title: The react 19 update
-description: Why react 19 update matters and how it will affect your web development perspective.
-date: 2021-10-20
+title: React 19 changes everything
+description: React 19 is a major update that changes everything. It introduces new features and improvements that make it easier to build modern web applications.
+date: 2024-05-02
 published: true
 displayImage: https://raw.githubusercontent.com/iamshishirgaire/image-resources/master/blogs/react.webp
-category: react
+category: React
 isFeatured: false
 tags: 
-  - react
-  - react19
-
+  - Frontend
+  - React
 ---
 
-React 19 is the latest release of React. It comes with a lot of new features and improvements. In this article, we will discuss the new features and improvements in React 19.
-```jsx
-    console.log("Hello world")
+React 19 Beta is now available on npm! If you haven't already, check out our [React 19 Beta Upgrade Guide](https://react19.example.com/upgrade-guide) for step-by-step instructions on upgrading your app. In this post, we’ll dive into the exciting new features of React 19 and explore how you can leverage them in your projects.
+
+## What’s New in React 19
+
+### Actions
+One of the key additions in React 19 is the introduction of Actions. Traditionally, handling asynchronous data mutations and state updates in React required manual management of pending states, errors, and optimistic updates. With Actions, this process is streamlined, allowing for automatic handling of pending states, errors, and more. Here’s a snippet demonstrating how Actions simplify form submissions:
+
+```javascript
+// Using pending state from Actions
+function UpdateName({}) {
+  const [name, setName] = useState("");
+  const [error, setError] = useState(null);
+  const [isPending, startTransition] = useTransition();
+
+  const handleSubmit = () => {
+    startTransition(async () => {
+      const error = await updateName(name);
+      if (error) {
+        setError(error);
+        return;
+      } 
+      redirect("/path");
+    })
+  };
+
+  return (
+    <div>
+      <input value={name} onChange={(event) => setName(event.target.value)} />
+      <button onClick={handleSubmit} disabled={isPending}>
+        Update
+      </button>
+      {error && <p>{error}</p>}
+    </div>
+  );
+}
 ```
+
+### New Hook: useActionState
+
+To further enhance the Action pattern, React 19 introduces `useActionState`, a powerful hook for managing common Action scenarios. This hook simplifies error handling, pending states, and more, making your code cleaner and more efficient. Here's how you can use it:
+
+```javascript
+// Using <form> Actions and useActionState
+function ChangeName({ name, setName }) {
+  const [error, submitAction, isPending] = useActionState(
+    async (previousState, formData) => {
+      const error = await updateName(formData.get("name"));
+      if (error) {
+        return error;
+      }
+      redirect("/path");
+      return null;
+    },
+    null,
+  );
+
+  return (
+    <form action={submitAction}>
+      <input type="text" name="name" />
+      <button type="submit" disabled={isPending}>Update</button>
+      {error && <p>{error}</p>}
+    </form>
+  );
+}
+```
+
+### New API: useOptimistic
+
+Another exciting addition is the `useOptimistic` hook, which simplifies optimistic updates in React applications. This hook allows you to instantly reflect changes in UI while asynchronous requests are in progress. Here's a quick example:
+
+```javascript
+function ChangeName({currentName, onUpdateName}) {
+  const [optimisticName, setOptimisticName] = useOptimistic(currentName);
+
+  const submitAction = async formData => {
+    const newName = formData.get("name");
+    setOptimisticName(newName);
+    const updatedName = await updateName(newName);
+    onUpdateName(updatedName);
+  };
+
+  return (
+    <form action={submitAction}>
+      <p>Your name is: {optimisticName}</p>
+      <p>
+        <label>Change Name:</label>
+        <input
+          type="text"
+          name="name"
+          disabled={currentName !== optimisticName}
+        />
+      </p>
+    </form>
+  );
+}
+```
+
+These are just a few highlights of the new features in React 19. Let’s explore more enhancements and improvements in the next sections.
+
+## Improvements in React 19
+
+### Ref as a Prop
+
+Starting in React 19, you can now access `ref` as a prop for function components without the need for `forwardRef`. This simplifies component composition and enhances code readability.
+
+```javascript
+function MyInput({placeholder, ref}) {
+  return <input placeholder={placeholder} ref={ref} />
+}
+
+// Usage
+<MyInput ref={ref} />
+```
+
+### Diffs for Hydration Errors
+
+React 19 improves error reporting for hydration errors, providing clearer messages and helpful information for debugging. Instead of multiple error logs, you'll now see a single message with a diff of the mismatch.
+
+### Support for Document Metadata
+
+Rendering document metadata tags like `<title>`, `<link>`, and `<meta>` is now natively supported in React 19. This simplifies managing metadata in your applications and ensures compatibility with various rendering environments.
+
+These are just a few of the many improvements in React 19. For a detailed overview of all the changes, including support for Server Components, Custom Elements, and more, check out the full release notes.
+
+## Conclusion
+
+React 19 introduces a plethora of new features and improvements aimed at making your development experience smoother and more efficient. From streamlined asynchronous data handling to enhanced error reporting and support for custom elements, React 19 opens up exciting possibilities for building modern web applications.
+
+Ready to upgrade? Head over to the [React 19 Beta Upgrade Guide](https://react19.example.com/upgrade-guide) and start exploring the future of React today!
+
+**Reference:** Original blog post can be found [here](https://original-blog-post.com).
