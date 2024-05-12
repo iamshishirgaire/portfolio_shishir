@@ -6,7 +6,10 @@ import { SocialLinks } from "../data/links";
 
 const HeroSection = () => {
   return (
-    <section id="hero-section" className="container  px-4 md:px-6">
+    <section
+      id="hero-section"
+      className="container h-full items-center flex  justify-center  px-4 md:px-6"
+    >
       <div className="container px-4 md:px-6 grid md:grid-cols-2 gap-8 items-center">
         <AnimatedSection>
           <div className="space-y-2">

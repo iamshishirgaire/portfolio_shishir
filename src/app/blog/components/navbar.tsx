@@ -1,18 +1,24 @@
+"use client";
 import { ThemeToggler } from "@/components/theme-toggler";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  SheetTrigger,
-  Sheet,
-  SheetContent,
-  SheetClose,
-} from "@/components/ui/sheet";
+
 import { MenuIcon, SearchIcon } from "lucide-react";
 import Link from "next/link";
 import SearchForm from "./search-form";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import PostsCategories from "./categories";
+import Tags from "./tags";
+import MobileSearchForm from "./mobile_search_form";
 
 const BlogNavbar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <header className="px-4 lg:px-32 h-14 flex items-center sticky border-b-2 border-border/40 top-0 z-10 bg-background/90 backdrop-blur-sm justify-between">
@@ -38,19 +44,20 @@ const BlogNavbar = () => {
         <div className="lg:hidden flex justify-end w-full me-1">
           <ThemeToggler></ThemeToggler>
         </div>
-        <Sheet>
-          <SheetTrigger asChild>
+        <Drawer onOpenChange={setOpen} open={open}>
+          <DrawerTrigger asChild>
             <Button className="lg:hidden px-2" size="icon" variant="outline">
               <MenuIcon className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
-          </SheetTrigger>
-          <SheetContent side="right">
-            <div className="grid gap-2 py-6">
-              <h1>To be implemented</h1>
-            </div>
-          </SheetContent>
-        </Sheet>
+          </DrawerTrigger>
+          <DrawerContent className="p-4 pb-10">
+            <div className="h-7"></div>
+            <PostsCategories></PostsCategories>
+            <Tags></Tags>
+            <MobileSearchForm onSubmit={setOpen}></MobileSearchForm>
+          </DrawerContent>
+        </Drawer>
       </header>
     </>
   );
@@ -66,13 +73,13 @@ export function LinkComponent({
   displayText: string;
 }) {
   return (
-    <SheetClose asChild>
+    <DrawerClose asChild>
       <Link
-        className="text-sm font-medium  hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2 "
+        className="text-sm ps-4 font-medium border-b-2 border-border/25 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md px-2 py-2 "
         href={href}
       >
         {displayText}
       </Link>
-    </SheetClose>
+    </DrawerClose>
   );
 }

@@ -49,8 +49,6 @@ export default function RootLayout({
         )}
       >
         <AppProvider>
-          <NextTopLoader color="red" showSpinner={false} />
-
           <div>{children}</div>
           <Footer></Footer>
         </AppProvider>
