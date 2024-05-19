@@ -1,6 +1,6 @@
 import Image from "next/image";
 import * as runtime from "react/jsx-runtime";
-import { Callout } from "./callout";
+import { Callout, Information } from "./callout";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { AlertCircle } from "lucide-react";
 
@@ -16,6 +16,7 @@ const components = {
   AlertDescription,
   AlertTitle,
   AlertCircle,
+  Information,
 };
 
 interface MdxProps {

@@ -1,0 +1,84 @@
+---
+title: "Optimizing Database Design: Array vs. Separate Table/Schema"
+description: Discover the best practices for handling user likes in database schemas. Learn the advantages and disadvantages of storing likes in an array within the post schema versus using a separate table. Explore how these choices impact performance, scalability, and data management in MongoDB and SQL databases.
+date: 2024-05-19
+published: true
+displayImage: https://raw.githubusercontent.com/iamshishirgaire/image-resources/master/blogs/react.webp
+category: Database
+isFeatured: true
+tags: [Database , Backend , Mongodb , PostgreSql]
+---
+
+<Information variant="destructive" title="Note" description="In this blog post, we'll examine the database design choices for managing user likes in a blogging platform. Our focus will be on the Post schema, which stores blog post details, and the Like schema, which tracks user likes. We'll compare the performance and scalability of storing likes as an array within the Post schema versus using a separate Like schema.
+" ></Information>
+
+
+
+
+
+
+<Information title="Tl;DR" description="Storing likes in an array within the post schema is simpler and can be efficient for small to moderate volumes. However, using a separate table for likes offers better scalability, performance, and flexibility for handling millions of likes, despite added complexity in queries.
+Storing millions of user likes in an array within the post schema can have significant performance implications compared to separating the like schema into its own table. Read the detailed blog below to understand the trade-offs and best practices for optimizing database designs." ></Information>
+
+
+
+
+
+## Comparison with Embedded Like Schema
+
+## 1. Read Performance
+
+**Advantages:**
+- **Single Document Retrieval**: Fetching a post along with its likes in a single document read operation can be faster since it avoids the need for a join operation.
+- **Simple Queries**: Basic queries to retrieve the likes array can be straightforward and efficient for small to moderately sized arrays.
+
+**Disadvantages:**
+- **Large Document Size**: As the number of likes grows, the document size increases significantly. MongoDB has a document size limit of 16 MB. Exceeding this limit can lead to errors and necessitate splitting data across multiple documents.
+- **Read Latency**: Large arrays increase the amount of data read in each query, which can slow down read operations and increase latency, especially if the array size approaches the document size limit.
+- **Indexing Limitations**: MongoDB's indexing capabilities on array fields are limited. Queries involving array elements (e.g., checking if a user liked a post) can become slower as the array grows.
+
+## 2. Write Performance
+
+**Advantages:**
+- **Atomic Operations**: Updates to the likes array are atomic, which ensures consistency without requiring complex transactions.
+
+**Disadvantages:**
+- **Write Amplification**: Updating the likes array (e.g., adding or removing a user) requires rewriting the entire array, which can be inefficient and slow for large arrays.
+- **Concurrency Issues**: High write concurrency (e.g., many users liking or unliking posts simultaneously) can lead to performance bottlenecks, as MongoDB locks the entire document during write operations.
+
+## 3. Memory Usage
+
+- **Increased Memory Footprint**: Large documents with extensive arrays consume more memory, both in terms of in-memory storage and cache usage. This can lead to increased memory pressure on the database server and potentially reduce overall performance.
+
+## 4. Scalability
+
+**Disadvantages:**
+- **Scalability Limitations**: As the number of likes grows, the single-document approach does not scale well. Managing millions of likes within a single document becomes impractical and can lead to performance degradation and maintenance challenges.
+
+##  5. Complexity and Maintenance
+
+- **Data Management**: Managing large arrays within a document can be complex. Tasks such as archiving old likes or managing users who liked a post become more cumbersome compared to a separate table approach.
+- **Schema Evolution**: Adding new attributes to likes (e.g., timestamp, like type) within an array in the post schema is less flexible compared to using a separate table.
+
+## Comparison with Separate Like Schema
+
+#### Separate Like Table/Schema
+
+**Structure:**
+- **Post Table**: Contains post details.
+- **Like Table**: Contains like details (e.g., like_id, post_id, user_id, timestamp).
+
+**Performance Implications:**
+
+**Advantages:**
+- **Normalized Data**: Normalized schema adheres to database design best practices, reducing data redundancy and potential anomalies.
+- **Efficient Queries**: Queries involving large datasets (e.g., counting likes, checking specific user likes) can leverage indexing and optimized joins, often resulting in better performance.
+- **Scalability**: Handling millions of likes in a separate table scales better, allowing for more efficient data management and retrieval.
+- **Write Efficiency**: Writes are more efficient as they affect only the like table, avoiding the need to rewrite entire documents.
+
+**Disadvantages:**
+- **Complex Queries**: Requires join operations for retrieving posts along with their likes, which can be more complex and potentially slower for certain read operations.
+
+## Conclusion
+Array within Post Schema: Suitable for small to moderate volumes of likes with simpler read operations, but less practical for millions of likes due to performance and scalability issues.
+Separate Like Table/Schema: Better for high volumes of likes, providing better scalability, performance, and flexibility despite increased query complexity.
