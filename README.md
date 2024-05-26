@@ -2,7 +2,7 @@
 ## Blogs
 ### TODO
 - [x] Search Filtering
-- [ ] Pagination
-- [ ] Theme Toggler Icons
-- [ ] Opengraph Seo
+- [x] Pagination
+- [x] Theme Toggler Icons
+- [x] Opengraph Seo
 - [ ] Fixing stale data
