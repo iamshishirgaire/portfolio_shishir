@@ -1,6 +1,5 @@
 import { Toaster } from "sonner";
 import { ThemeProvider } from "./next-theme-provider";
-import NextTopLoader from "nextjs-toploader";
 
 export default function AppProvider({
   children,
