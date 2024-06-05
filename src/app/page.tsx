@@ -6,11 +6,11 @@ import ScrollToTop from "@/components/scroll-to-top";
 import SkillsSection from "@/components/skills";
 import Testimonials from "@/components/testimonials";
 import TimeLine from "@/components/timeline";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function Home() {
   return (
-    <main
-      className="overflow-hidden"
+    <div
       style={{
         scrollBehavior: "smooth",
       }}
@@ -58,6 +58,6 @@ export default function Home() {
           </section>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

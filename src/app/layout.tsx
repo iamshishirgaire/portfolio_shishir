@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 import { Inter as FontSans } from "next/font/google";
 import Navbar from "@/components/navbar";
 import NextTopLoader from "nextjs-toploader";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -44,13 +45,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="scroll-pt-[10vh]">
       <body
         className={cn(
-          " bg-background font-sans antialiased",
+          " bg-background font-sans antialiased select-none",
           fontSans.variable
         )}
       >
         <AppProvider>
-          <div>{children}</div>
-          <Footer></Footer>
+          <ScrollArea className="h-[100vh]">
+            <div>{children}</div>
+            <Footer></Footer>
+          </ScrollArea>
         </AppProvider>
       </body>
     </html>

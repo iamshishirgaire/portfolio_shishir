@@ -37,10 +37,14 @@ const HeroSection = () => {
         <AnimatedImage>
           <Image
             alt="Shishir Gaire"
-            className="mx-auto aspect-square overflow-hidden rounded-full object-cover"
+            className="mx-auto aspect-square overflow-hidden border-4 border-border p-1 rounded-full object-cover"
             height="500"
             src="/images/profile.jpg"
             width="500"
+            quality={100}
+            priority
+            placeholder="blur"
+            blurDataURL="/images/profile.jpg"
           />
         </AnimatedImage>
       </div>

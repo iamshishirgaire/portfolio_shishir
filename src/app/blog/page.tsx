@@ -1,3 +1,4 @@
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import PostsCategories from "./components/categories";
 import FeaturedPosts from "./components/featured";
 import LatestFeaturedPost from "./components/latest-featured";

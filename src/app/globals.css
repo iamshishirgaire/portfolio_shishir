@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-y: auto; /* Always show vertical scrollbar space */
 }
 
 @layer base {
@@ -63,22 +64,19 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   border-radius: 0px;
   background: #4d535c;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #9a9897;
   border-radius: 20px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #c9c7c7;
 }

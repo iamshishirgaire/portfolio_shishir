@@ -17,7 +17,6 @@ export default function BlogDetailPage({
   return (
     <div>
       <BlogNavbar />
-
       {children}
     </div>
   );
