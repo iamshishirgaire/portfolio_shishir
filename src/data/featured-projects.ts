@@ -1,6 +1,22 @@
 export const projects = [
   {
     imgUrl:
+      "https://raw.githubusercontent.com/iamshishirgaire/image-resources/master/portfolio/Projects/y.png",
+    title: "Y",
+    description: "Full Stack X clone.",
+    stack: [
+      "NextJs",
+      "Typescript",
+      "Tailwind Css",
+      "PostgreSQL",
+      "Hono Js",
+      "Redis",
+      "Bun",
+    ],
+    githubLink: "https://github.com/iamshishirgaire/Y-X-clone",
+  },
+  {
+    imgUrl:
       "https://raw.githubusercontent.com/iamshishirgaire/image-resources/master/portfolio/Projects/sqlpg.png",
     title: "Sql Playground",
     description:
