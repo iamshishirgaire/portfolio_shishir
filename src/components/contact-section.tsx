@@ -108,7 +108,7 @@ export default function ContactMe() {
                 control={form.control}
                 name="fullName"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="flex flex-col justify-start items-start">
                     <FormLabel>Name</FormLabel>
                     <FormControl>
                       <Input placeholder="Full Name" {...field} />
@@ -122,7 +122,7 @@ export default function ContactMe() {
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="flex flex-col justify-start items-start">
                     <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input placeholder="Email Address" {...field} />
@@ -136,7 +136,7 @@ export default function ContactMe() {
                 control={form.control}
                 name="message"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="flex flex-col justify-start items-start">
                     <FormLabel>Message</FormLabel>
                     <FormControl>
                       <Textarea placeholder="Message" {...field} />

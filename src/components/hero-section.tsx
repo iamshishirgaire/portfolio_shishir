@@ -37,7 +37,7 @@ const HeroSection = () => {
         <AnimatedImage>
           <Image
             alt="Shishir Gaire"
-            className="mx-auto aspect-square overflow-hidden border-4 border-border p-1 rounded-full object-cover"
+            className="aspect-square size-[300] md:size-[500] overflow-hidden border-4 border-border p-1 rounded-full object-cover"
             height="500"
             src="/images/profile.jpg"
             width="500"

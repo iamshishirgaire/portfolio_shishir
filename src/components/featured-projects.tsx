@@ -1,24 +1,24 @@
 import { Badge } from "@/components/ui/badge";
 import {
-  CarouselItem,
-  CarouselContent,
-  CarouselPrevious,
-  CarouselNext,
   Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
-import { projects } from "../data/featured-projects";
-import Image from "next/image";
-import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
 import { Github, Globe } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { projects } from "../data/featured-projects";
 import { AnimatedTitle } from "./animated-sec";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
 
 export default function FeaturedProjects() {
   return (
     <section className="max-w-4xl overflow-hidden">
       <AnimatedTitle>
-        <div className="space-y-4 text-center mb-10">
+        <div className=" flex items-center justify-center flex-col  mb-10">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Featured Projects
           </h2>
@@ -40,10 +40,10 @@ export default function FeaturedProjects() {
             <CarouselItem key={index}>
               <Card className="dark:bg-black">
                 <CardContent>
-                  <div className="grid grid-cols-1 items-center hover:bg-gray-10 md:grid-cols-2 gap-6 p-2 md:p-6">
+                  <div className="grid grid-cols-1 items-center hover:bg-gray-10 md:grid-cols-2 md:gap-6 p-1 md:p-6">
                     <div className="flex flex-col h-full justify-between">
                       <div className="space-y-4">
-                        <h2 className="text-xl lg:text-3xl font-bold">
+                        <h2 className="text-xl pt-4 lg:text-3xl font-bold">
                           {project.title}
                         </h2>
                         <p className="text-gray-500 text-sm lg:text-lg dark:text-gray-400">
@@ -90,7 +90,7 @@ export default function FeaturedProjects() {
                         style={{
                           objectFit: "cover",
                         }}
-                        width={800}
+                        width={500}
                       />
                     </div>
                   </div>
