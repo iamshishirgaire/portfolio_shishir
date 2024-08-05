@@ -15,46 +15,46 @@ export default function Home() {
         scrollBehavior: "smooth",
       }}
     >
-      <Navbar></Navbar>
+      <Navbar />
 
       <div className="flex  flex-col">
-        <ScrollToTop></ScrollToTop>
+        <ScrollToTop />
         <div className="flex-1">
           <section
             className="w-full pt-32 h-[100vh] py-12 md:py-24 lg:py-32 xl:py-48 dark:bg-black"
             id="hero-section"
           >
-            <HeroSection></HeroSection>
+            <HeroSection />
           </section>
           <section
             className="w-full flex items-center justify-center  py-12 md:py-24 lg:py-32 dark:bg-zinc-950 bg-zinc-100 "
             id="projects"
           >
-            <FeaturedProjects></FeaturedProjects>
+            <FeaturedProjects />
           </section>
           {/* <section
             className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black"
             id="testimonials-section"
           >
-            <Testimonials></Testimonials>{" "}
+            <Testimonials />
           </section>{" "} */}
           <section
             className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black"
             id="skills-section"
           >
-            <SkillsSection></SkillsSection>{" "}
+            <SkillsSection />
           </section>{" "}
           <section
             className="w-full py-12 md:py-24 lg:py-32 bg-zinc-100 dark:bg-zinc-950"
             id="education-section"
           >
-            <TimeLine></TimeLine>
+            <TimeLine />
           </section>{" "}
           <section
             id="contact-section"
             className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-black"
           >
-            <ContactMe></ContactMe>
+            <ContactMe />
           </section>
         </div>
       </div>

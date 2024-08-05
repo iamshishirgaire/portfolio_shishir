@@ -1,4 +1,4 @@
-import { CheckCheck, Clock } from "lucide-react";
+import { Baby, CheckCheck, Clock, TrendingUpIcon } from "lucide-react";
 import { AnimatedTitle } from "./animated-sec";
 
 const TimeLine = () => {
@@ -17,14 +17,14 @@ const TimeLine = () => {
         </AnimatedTitle>
         <ol className="relative border-s border-gray-200 dark:border-gray-700">
           <li className="mb-10 ms-6">
-            <span className="absolute p-1 flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-              <Clock></Clock>
+            <span className="absolute p-1 flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-600/20 dark:bg-gray-600">
+              <Clock />
             </span>
             <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
               Thapathali Engineering Campus{" "}
               <span
-                className="bg-gray-100 text-primary
- text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ms-3"
+                className="bg-gray-200 text-muted-foreground
+ text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-gray-300 ms-3"
               >
                 Ongoing
               </span>
@@ -32,11 +32,13 @@ const TimeLine = () => {
             <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
               Bachelor in Electronics Engineering (2019 - present)
             </time>
-            <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"></p>
+            <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+              {}
+            </p>
           </li>
           <li className="mb-10 ms-6">
-            <span className="absolute flex p-1 items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-              <CheckCheck></CheckCheck>
+            <span className="absolute flex p-1 items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3 ring-8 ring-white dark:ring-primary/20 dark:bg-primary">
+              <CheckCheck />
             </span>
             <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
               Morgan Int'l College
@@ -45,9 +47,9 @@ const TimeLine = () => {
               Higher Secondary Education (2017 - 2019)
             </time>
           </li>
-          <li className="ms-6">
-            <span className="absolute p-1 flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-              <CheckCheck></CheckCheck>
+          <li className="ms-6 -mb-10">
+            <span className="absolute p-1 flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3 ring-8 ring-white dark:ring-primary/20 dark:bg-primary">
+              <CheckCheck />
             </span>
             <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
               Sweta Sadan School

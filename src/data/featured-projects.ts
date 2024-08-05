@@ -11,9 +11,12 @@ export const projects = [
       "PostgreSQL",
       "Hono Js",
       "Redis",
+      "Bull Mq",
+      "Resend",
       "Bun",
     ],
     githubLink: "https://github.com/iamshishirgaire/Y-X-clone",
+    liveLink: "https://twitter-xi-brown.vercel.app/dashboard/home",
   },
   {
     imgUrl:

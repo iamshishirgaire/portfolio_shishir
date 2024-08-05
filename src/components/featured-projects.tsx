@@ -37,7 +37,7 @@ export default function FeaturedProjects() {
       >
         <CarouselContent>
           {projects.map((project, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem key={project.title}>
               <Card className="dark:bg-black">
                 <CardContent>
                   <div className="grid grid-cols-1 items-center hover:bg-gray-10 md:grid-cols-2 md:gap-6 p-1 md:p-6">
@@ -53,7 +53,7 @@ export default function FeaturedProjects() {
                       <div className="flex flex-wrap min-h-16 gap-2  mb-10 mt-2">
                         {project.stack.map((tech, idx) => (
                           <Badge
-                            key={idx}
+                            key={tech}
                             className="px-3 py-1 h-fit  select-none"
                             variant="outline"
                           >
@@ -63,17 +63,17 @@ export default function FeaturedProjects() {
                       </div>
                       <div className="flex flex-col lg:flex-row gap-2">
                         {project.githubLink && (
-                          <Link href={project.githubLink}>
+                          <Link href={project.githubLink} target="_blank">
                             <Button variant={"outline"} size={"sm"}>
-                              <Github className="size-4 me-3 mb-1"></Github>
+                              <Github className="size-4 me-3 mb-1" />
                               Github
                             </Button>
                           </Link>
                         )}
                         {project.liveLink && (
-                          <Link href={project.liveLink}>
+                          <Link href={project.liveLink} target="_blank">
                             <Button variant={"outline"} size={"sm"}>
-                              <Globe className="size-4 me-3 mb-1"></Globe>
+                              <Globe className="size-4 me-3 mb-1" />
                               Live
                             </Button>
                           </Link>

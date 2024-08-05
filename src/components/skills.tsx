@@ -1,7 +1,7 @@
-import { skills } from "../data/skills";
-import Image from "next/image";
-import { AnimatedSection, AnimatedTitle } from "./animated-sec";
 import Link from "next/link";
+import { skills } from "../data/skills";
+import { AnimatedSection, AnimatedTitle } from "./animated-sec";
+import { LogoImage } from "./logoImage";
 const SkillsSection = () => {
   return (
     <div className="container px-4 md:px-6">
@@ -25,10 +25,6 @@ const SkillsSection = () => {
 };
 
 export default SkillsSection;
-
-function LogoImage({ src, alt }: { src: string; alt: string }) {
-  return <Image alt={alt} src={src} height={40} width={40}></Image>;
-}
 
 function SkillCard({
   skill,

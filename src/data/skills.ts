@@ -34,10 +34,11 @@ export const skills: Skill[] = [
     link: "https://reactjs.org/",
   },
   {
-    name: "Astro",
-    description: "A modern static site generator prioritizing performance.",
-    logo: "/icons/astro.svg",
-    link: "https://astro.build/",
+    name: "Expo",
+    description:
+      "A framework for building cross-platform native mobile applications.",
+    logo: "/icons/expo.svg",
+    link: "https://expo.dev/",
   },
   {
     name: "Tailwind CSS",
