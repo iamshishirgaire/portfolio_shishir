@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
+import TagAutoCompletions from "./tag_autocompletions";
 
 const SearchForm = () => {
   const router = useRouter();
@@ -28,6 +29,9 @@ const SearchForm = () => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
+        <div className="absolute mt-3">
+          <TagAutoCompletions onSelect={setInputValue} query={inputValue} />
+        </div>
       </form>
     </div>
   );

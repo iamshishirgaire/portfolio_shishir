@@ -35,14 +35,14 @@ const BlogNavbar = () => {
             </Button>
           </div>
           <Suspense>
-            <SearchForm></SearchForm>
+            <SearchForm />
           </Suspense>
           <div className="p-1">
-            <ThemeToggler></ThemeToggler>
+            <ThemeToggler />
           </div>
         </div>
         <div className="lg:hidden flex justify-end w-full me-1">
-          <ThemeToggler></ThemeToggler>
+          <ThemeToggler />
         </div>
         <Drawer onOpenChange={setOpen} open={open}>
           <DrawerTrigger asChild>
@@ -52,10 +52,10 @@ const BlogNavbar = () => {
             </Button>
           </DrawerTrigger>
           <DrawerContent className="p-4 pb-10">
-            <div className="h-7"></div>
-            <PostsCategories></PostsCategories>
-            <Tags></Tags>
-            <MobileSearchForm onSubmit={setOpen}></MobileSearchForm>
+            <div className="h-7">{}</div>
+            <PostsCategories />
+            <Tags />
+            <MobileSearchForm onSubmit={setOpen} />
           </DrawerContent>
         </Drawer>
       </header>

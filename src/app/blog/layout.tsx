@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import BlogNavbar from "./components/navbar";
 
 export const metadata: Metadata = {

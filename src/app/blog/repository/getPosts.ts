@@ -130,12 +130,12 @@ export const getPostByCategoryAndTag = ({
 }) => {
   const publishedPosts = posts.filter((post) => post.published);
   if (!categories && !tags) return publishedPosts;
-  if (!categories) return getPostByTag(tags!!);
-  if (!tags) return getPostByCategory(categories);
+  if (!categories && tags) return getPostByTag(tags);
+  if (!tags && categories) return getPostByCategory(categories);
   const filteredPosts = publishedPosts.filter((post) => {
     return (
-      categories.includes(post.category) &&
-      tags.some((t) => post.tags.includes(t))
+      categories?.includes(post.category) &&
+      tags?.some((t) => post.tags.includes(t))
     );
   });
   return filteredPosts;
