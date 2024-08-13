@@ -1,11 +1,11 @@
 "use client";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+import { RabbitIcon, SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { getSearchTags } from "../repository/getSearchTags";
 import Autocomplete from "react-autocomplete";
-import { cn } from "@/lib/utils";
-import { MessageSquareText, RabbitIcon, SearchIcon } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { getSearchTags } from "../repository/getSearchTags";
 
 const SearchForm = ({ onSubmit }: { onSubmit?: () => void }) => {
   const router = useRouter();
@@ -19,7 +19,7 @@ const SearchForm = ({ onSubmit }: { onSubmit?: () => void }) => {
       })}
       renderMenu={(items, value, style) => (
         <div
-          className="absolute z-10 mt-3 max-w-3xl w-[300px] border border-border/45 bg-popover/95 backdrop-blur-2xl backdrop-brightness-200  rounded-md shadow-lg"
+          className="absolute hidden md:flex flex-col z-10 mt-3 max-w-3xl w-[300px] border border-border/45 bg-popover/95 backdrop-blur-2xl backdrop-brightness-200  rounded-md shadow-lg"
           style={{
             ...style,
           }}
