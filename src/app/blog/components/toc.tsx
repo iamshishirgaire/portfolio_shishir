@@ -57,8 +57,8 @@ function useActiveItem(itemIds: (string | undefined)[]) {
             setActiveId(entry.target.id);
           }
         });
-      },
-      { rootMargin: `0% 0% -80% 0%` }
+      }
+      // { rootMargin: `0% 0% 0% 0%` }
     );
 
     itemIds?.forEach((id) => {
@@ -100,11 +100,11 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
     <ul className={cn("m-0 list-none", { "pl-4": level !== 1 })}>
       {tree.map((item, index) => {
         return (
-          <li key={index} className={cn("mt-0 pt-2")}>
+          <li key={index} className={cn("mt-0 pt-2 ")}>
             <a
               href={item.url}
               className={cn(
-                "inline-block no-underline",
+                "inline-block no-underline transition-all duration-150 ease-linear",
                 item.url === `#${activeItem}`
                   ? "text-primary font-medium"
                   : "text-muted-foreground text-sm"

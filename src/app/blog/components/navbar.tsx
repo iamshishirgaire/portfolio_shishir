@@ -15,10 +15,12 @@ import {
 import PostsCategories from "./categories";
 import Tags from "./tags";
 import MobileSearchForm from "./mobile_search_form";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const BlogNavbar = () => {
   const [open, setOpen] = useState(false);
-
+  const pathName = usePathname();
   return (
     <>
       <header className="px-4 lg:px-32 h-14 flex items-center sticky border-b-2 border-border/40 top-0 z-10 bg-background/90 backdrop-blur-sm justify-between">
@@ -47,7 +49,10 @@ const BlogNavbar = () => {
         <Drawer onOpenChange={setOpen} open={open}>
           <DrawerTrigger asChild>
             <Button
-              className="lg:hidden px-2 me-5"
+              className={cn(
+                "lg:hidden px-2",
+                pathName === "/blog" && "me-[19px]"
+              )}
               size="icon"
               variant="outline"
             >

@@ -21,7 +21,7 @@ export default function NotFound() {
             Oops! Page not found.
           </h1>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-            The page you're looking for doesn't exist or has been moved.
+            {`The page you are looking for might have been removed or doesn't exist.`}
           </p>
           <div className="mt-8">
             <Link href={"/blog"}>
