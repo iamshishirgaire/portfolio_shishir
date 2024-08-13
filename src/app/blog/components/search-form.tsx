@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { MessageSquareText, RabbitIcon, SearchIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
-const SearchForm = () => {
+const SearchForm = ({ onSubmit }: { onSubmit?: () => void }) => {
   const router = useRouter();
   const [inputValue, setInputValue] = useState("");
 
@@ -42,6 +42,7 @@ const SearchForm = () => {
                 const query = new URLSearchParams();
                 query.set("q", inputValue);
                 router.push(`/blog/search?${query.toString()}`);
+                onSubmit && onSubmit();
               }
             }}
             className="absolute cursor-pointer bg-primary/30 hover:scale-105 transition-transform duration-150 text-primary rounded-md p-1 left-3 top-1/2 transform -translate-y-1/2 text-gray-500 z-10"
@@ -80,6 +81,7 @@ const SearchForm = () => {
       value={inputValue}
       onChange={(e) => setInputValue(e.target.value)}
       onSelect={(val) => {
+        onSubmit && onSubmit();
         setInputValue(val);
         const query = new URLSearchParams();
         query.set("q", val);

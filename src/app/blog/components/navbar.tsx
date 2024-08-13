@@ -46,16 +46,34 @@ const BlogNavbar = () => {
         </div>
         <Drawer onOpenChange={setOpen} open={open}>
           <DrawerTrigger asChild>
-            <Button className="lg:hidden px-2" size="icon" variant="outline">
+            <Button
+              className="lg:hidden px-2 me-5"
+              size="icon"
+              variant="outline"
+            >
               <MenuIcon className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="p-4 pb-10">
+          <DrawerContent className="p-4 border-none pb-10">
             <div className="h-7">{}</div>
-            <PostsCategories />
-            <Tags />
-            <MobileSearchForm onSubmit={setOpen} />
+            <SearchForm
+              onSubmit={() => {
+                setOpen(false);
+              }}
+            />
+            <div className="h-7">{}</div>
+
+            <PostsCategories
+              onItemClick={() => {
+                setOpen(false);
+              }}
+            />
+            <Tags
+              onItemClick={() => {
+                setOpen(false);
+              }}
+            />
           </DrawerContent>
         </Drawer>
       </header>

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { getCategories } from "../repository/getPosts";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-const PostsCategories = () => {
+const PostsCategories = ({ onItemClick }: { onItemClick?: () => void }) => {
   const categories = getCategories();
   return (
     <section className="mb-8 md:mb-12">
@@ -10,17 +11,19 @@ const PostsCategories = () => {
           Categories
         </h2>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <ScrollArea className="h-[30px] w-[100vw]">
         {categories.map((category) => (
           <Link
+            onClick={onItemClick}
             key={category}
-            className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-200 dark:bg-zinc-800 dark:text-gray-300 dark:hover:bg-zinc-700"
+            className="m-1 bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-200 dark:bg-zinc-800 dark:text-gray-300 dark:hover:bg-zinc-700"
             href={`blog/search?category=${category.toLowerCase()}`}
           >
             {category.toUpperCase()}
           </Link>
         ))}
-      </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
     </section>
   );
 };

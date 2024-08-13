@@ -1,8 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import { getTags } from "../repository/getPosts";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-const Tags = () => {
+const Tags = ({ onItemClick }: { onItemClick?: () => void }) => {
   const tags = getTags();
   return (
     <section className="mb-8 md:mb-12">
@@ -11,17 +12,19 @@ const Tags = () => {
           Tags
         </h2>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <ScrollArea className="h-[40px] w-[100vw]">
         {tags.map((tag) => (
           <Link
+            onClick={onItemClick}
             key={tag}
-            className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-200 dark:bg-zinc-800 dark:text-gray-300 dark:hover:bg-zinc-700"
+            className=" mx-1 my-1 bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-200 dark:bg-zinc-800 dark:text-gray-300 dark:hover:bg-zinc-700"
             href={`blog/search?tag=${tag.toLowerCase()}`}
           >
             {tag.toUpperCase()}
           </Link>
         ))}
-      </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
     </section>
   );
 };
