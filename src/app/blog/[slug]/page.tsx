@@ -1,7 +1,7 @@
 import "@/app/blog/styles/mdx.css";
 import { notFound } from "next/navigation";
 import SingleBlog from "../components/single-blog";
-import { getPostBySlug, getPosts } from "../repository/getPosts";
+import { getPostBySlug, getPosts } from "../repository/post";
 
 export async function generateStaticParams() {
   const posts = getPosts();

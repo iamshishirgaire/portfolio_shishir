@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLatestFeaturedPost, getPosts } from "../repository/getPosts";
+import { getLatestFeaturedPost, getPosts } from "../repository/post";
 import Image from "next/image";
 
 const LatestFeaturedPost = () => {

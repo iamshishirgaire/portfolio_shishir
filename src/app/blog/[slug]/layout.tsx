@@ -1,6 +1,6 @@
 import { absoluteUrl } from "@/lib/utils";
 import React from "react";
-import { getPostBySlug } from "../repository/getPosts";
+import { getPostBySlug } from "../repository/post";
 import { Metadata } from "next";
 
 export async function generateMetadata({

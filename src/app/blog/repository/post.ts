@@ -1,6 +1,25 @@
+import Fuse from "fuse.js";
 import { posts } from "@site/content";
+import { get } from "http";
 
 export type TPost = (typeof posts)[0];
+
+const fuseOptions = {
+  // isCaseSensitive: false,
+  // includeScore: false,
+  shouldSort: true,
+  // includeMatches: false,
+  // findAllMatches: false,
+  // minMatchCharLength: 1,
+  // location: 0,
+  // threshold: 0.6,
+  // distance: 100,
+  // useExtendedSearch: false,
+  // ignoreLocation: false,
+  // ignoreFieldNorm: false,
+  // fieldNormWeight: 1,
+  keys: ["tags", "category", "title", "body", "description"],
+};
 
 export const getPosts = () => {
   const publishedPosts = posts.filter((post) => post.published);
@@ -9,6 +28,14 @@ export const getPosts = () => {
   });
   return publishedPosts;
 };
+const transformTags = (tags?: string[]) => {
+  return tags ? tags.map((tag) => ({ tags: tag })) : [];
+};
+const transformCategories = (catgs?: string[]) => {
+  return catgs ? catgs.map((cat) => ({ category: cat })) : [];
+};
+const fuse = new Fuse(getPosts(), fuseOptions);
+
 export const getPostByQueryFilter = ({
   query,
   categories,
@@ -18,53 +45,16 @@ export const getPostByQueryFilter = ({
   categories: string[] | null;
   tags: string[] | null;
 }) => {
-  const publishedPosts = getPosts();
-  if (!query && !categories && !tags) return publishedPosts;
-  if (query && !categories && !tags) {
-    return publishedPosts.filter((post) => {
-      return post.title.toLowerCase().includes(query.toLowerCase());
-    });
-  }
-  if (!query && categories && !tags) {
-    return getPostByCategory(categories);
-  }
-  if (!query && !categories && tags) {
-    return getPostByTag(tags);
-  }
-  if (query && categories && !tags) {
-    return publishedPosts.filter((post) => {
-      return (
-        post.title.toLowerCase().includes(query.toLowerCase()) ||
-        categories.includes(post.category)
-      );
-    });
-  }
-  if (query && !categories && tags) {
-    return publishedPosts.filter((post) => {
-      return (
-        post.title.toLowerCase().includes(query.toLowerCase()) ||
-        tags.some((t) => post.tags.includes(t))
-      );
-    });
-  }
-  if (!query && categories && tags) {
-    return publishedPosts.filter((post) => {
-      return (
-        categories.includes(post.category) ||
-        tags.some((t) => post.tags.includes(t))
-      );
-    });
-  }
-  if (query && categories && tags) {
-    return publishedPosts.filter((post) => {
-      return (
-        post.title.toLowerCase().includes(query.toLowerCase()) ||
-        categories.includes(post.category) ||
-        tags.some((t) => post.tags.includes(t))
-      );
-    });
-  }
-  return publishedPosts;
+  const fuseResult = fuse.search({
+    $or: [
+      ...transformCategories(categories ?? []),
+      ...transformTags(tags ?? []),
+      {
+        title: query ?? "",
+      },
+    ],
+  });
+  return fuseResult.map((result) => result.item);
 };
 
 export const getCategories = () => {
@@ -78,7 +68,11 @@ export const getTags = () => {
   const tags = posts.flatMap((post) => {
     return post.tags;
   });
-  return Array.from(new Set(tags));
+  const uniqueTags = Array.from(new Set(tags));
+  const objTags = uniqueTags.map((tag) => {
+    return { label: tag, value: tag.toLowerCase() };
+  });
+  return objTags;
 };
 
 export const getPostBySlug = (slug: string) => {

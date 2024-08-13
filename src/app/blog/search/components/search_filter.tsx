@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Filter } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { getCategories, getTags } from "../../repository/getPosts";
+import { getCategories, getTags } from "../../repository/post";
 
 const SearchFilter = () => {
   const tags = getTags();
@@ -64,25 +64,27 @@ const SearchFilter = () => {
           <AccordionContent>
             <div className="space-y-2">
               {tags.map((tag) => (
-                <div key={tag} className="items-top flex space-x-2">
+                <div key={tag.value} className="items-top flex space-x-2">
                   <Checkbox
                     className="scale-105"
                     id={`tag-${tag}`}
-                    checked={paramsTags.includes(tag)}
+                    checked={paramsTags.includes(tag.value)}
                     onCheckedChange={(e) => {
                       if (e) {
-                        setparamsTags([...paramsTags, tag]);
+                        setparamsTags([...paramsTags, tag.value]);
                       } else {
-                        setparamsTags(paramsTags.filter((t) => t !== tag));
+                        setparamsTags(
+                          paramsTags.filter((t) => t !== tag.value)
+                        );
                       }
                     }}
                   ></Checkbox>
                   <label
-                    key={tag}
+                    key={tag.value}
                     htmlFor={`tag-${tag}`}
                     className="flex items-center gap-2 cursor-pointer"
                   >
-                    {tag}
+                    {tag.label}
                   </label>
                 </div>
               ))}

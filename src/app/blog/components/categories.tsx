@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getCategories } from "../repository/getPosts";
+import { getCategories } from "../repository/post";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const PostsCategories = ({ onItemClick }: { onItemClick?: () => void }) => {

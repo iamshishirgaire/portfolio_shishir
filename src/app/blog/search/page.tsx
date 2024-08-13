@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { getPostByQueryFilter } from "../repository/getPosts";
+import { getPostByQueryFilter } from "../repository/post";
 import BlogFooterPagination from "./components/pagination";
 import SearchTile from "./components/search-tile";
 import SearchFilter from "./components/search_filter";

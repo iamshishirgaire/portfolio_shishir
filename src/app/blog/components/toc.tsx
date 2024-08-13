@@ -11,7 +11,7 @@ import {
 import { useMounted } from "@/hooks/use-mounted";
 import { cn } from "@/lib/utils";
 import { FolderTree } from "lucide-react";
-import { TPost } from "../repository/getPosts";
+import { TPost } from "../repository/post";
 
 interface TocEntry {
   items?: TocEntry[];

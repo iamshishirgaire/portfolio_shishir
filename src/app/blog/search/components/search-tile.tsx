@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { TPost } from "../../repository/getPosts";
+import { TPost } from "../../repository/post";
 
 const SearchTile = (post: TPost) => {
   return (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { getPosts } from "../repository/getPosts";
+import { getPosts } from "../repository/post";
 import Image from "next/image";
 import Post from "./post";
 

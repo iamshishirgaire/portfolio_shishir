@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { getTags } from "../repository/getPosts";
+import { getTags } from "../repository/post";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const Tags = ({ onItemClick }: { onItemClick?: () => void }) => {
@@ -16,11 +16,11 @@ const Tags = ({ onItemClick }: { onItemClick?: () => void }) => {
         {tags.map((tag) => (
           <Link
             onClick={onItemClick}
-            key={tag}
+            key={tag.value}
             className=" mx-1 my-1 bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-200 dark:bg-zinc-800 dark:text-gray-300 dark:hover:bg-zinc-700"
-            href={`blog/search?tag=${tag.toLowerCase()}`}
+            href={`blog/search?tag=${tag.value.toLowerCase()}`}
           >
-            {tag.toUpperCase()}
+            {tag.value.toUpperCase()}
           </Link>
         ))}
         <ScrollBar orientation="horizontal" />

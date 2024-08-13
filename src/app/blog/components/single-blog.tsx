@@ -1,6 +1,6 @@
 import { MDXContent } from "@/components/mdx-component";
 import Image from "next/image";
-import { TPost } from "../repository/getPosts";
+import { TPost } from "../repository/post";
 import { DashboardTableOfContents, FloatingToc } from "./toc";
 
 export default function SingleBlog({ post }: { post: TPost }) {

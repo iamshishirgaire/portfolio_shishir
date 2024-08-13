@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { TPost } from "../repository/getPosts";
+import { TPost } from "../repository/post";
 import { Badge } from "@/components/ui/badge";
 
 const Post = ({ post }: { post: TPost }) => {

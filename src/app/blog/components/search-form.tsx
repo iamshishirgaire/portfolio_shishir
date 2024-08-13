@@ -5,7 +5,7 @@ import { RabbitIcon, SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Autocomplete from "react-autocomplete";
-import { getSearchTags } from "../repository/getSearchTags";
+import { getTags } from "../repository/post";
 
 const SearchForm = ({ onSubmit }: { onSubmit?: () => void }) => {
   const router = useRouter();
@@ -14,11 +14,12 @@ const SearchForm = ({ onSubmit }: { onSubmit?: () => void }) => {
   return (
     <Autocomplete
       getItemValue={(item) => item.label}
-      items={getSearchTags().filter((tag) => {
+      items={getTags().filter((tag) => {
         return tag.label.toLowerCase().includes(inputValue.toLowerCase());
       })}
       renderMenu={(items, value, style) => (
         <div
+          key={value}
           className="absolute hidden md:flex flex-col z-10 mt-3 max-w-3xl w-[300px] border border-border/45 bg-popover/95 backdrop-blur-2xl backdrop-brightness-200  rounded-md shadow-lg"
           style={{
             ...style,
@@ -35,7 +36,19 @@ const SearchForm = ({ onSubmit }: { onSubmit?: () => void }) => {
         </div>
       )}
       renderInput={(props) => (
-        <div className="relative h-10 w-full cursor-pointer">
+        <div
+          className="relative h-10 w-full cursor-pointer"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              if (inputValue) {
+                const query = new URLSearchParams();
+                query.set("q", inputValue);
+                router.push(`/blog/search?${query.toString()}`);
+                onSubmit && onSubmit();
+              }
+            }
+          }}
+        >
           <SearchIcon
             onClick={() => {
               if (inputValue) {
@@ -57,6 +70,7 @@ const SearchForm = ({ onSubmit }: { onSubmit?: () => void }) => {
       )}
       renderItem={(item, isHighlighted) => (
         <div
+          key={item.label}
           className={cn(
             "px-2 py-1 m-1 rounded-md cursor-pointer flex  border-b border-border/70",
             isHighlighted && "bg-gray-100 dark:bg-gray-500/30"
@@ -64,7 +78,7 @@ const SearchForm = ({ onSubmit }: { onSubmit?: () => void }) => {
         >
           {Array.from(item.label as string).map((char, index) => {
             return (
-              <p key={index}>
+              <p key={`${index}`}>
                 <span
                   className={cn(
                     inputValue.toLowerCase().includes(char.toLowerCase()) &&
