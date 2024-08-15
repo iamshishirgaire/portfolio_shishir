@@ -23,7 +23,7 @@ const BlogNavbar = () => {
   const pathName = usePathname();
   return (
     <>
-      <header className="px-4 lg:px-32 h-14 flex items-center sticky border-b-2 border-border/40 top-0 z-10 bg-background/90 backdrop-blur-sm justify-between">
+      <header className="px-4 lg:px-32 h-14 flex items-center sticky border-b-2 border-border/40 top-0 z-10 bg-background/90  backdrop-blur-sm justify-between">
         <Link className="flex items-center justify-center" href="/blog">
           <p className="font-extrabold text-3xl">
             shishir<span className="text-primary">.dev</span>
@@ -51,7 +51,7 @@ const BlogNavbar = () => {
             <Button
               className={cn(
                 "lg:hidden px-2",
-                pathName === "/blog" && "me-[19px]"
+                pathName === "/blog" && "me-[25px] md:me-[45px]",
               )}
               size="icon"
               variant="outline"

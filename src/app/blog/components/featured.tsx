@@ -7,7 +7,7 @@ import Post from "./post";
 const FeaturedPosts = () => {
   const featuredPosts = getFeaturedPosts();
   return (
-    <section className="mb-8 md:mb-12">
+    <section className="mb-8 md:mb-12 pe-8">
       <div className="flex items-center justify-between mb-4 md:mb-6">
         <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-50">
           Featured Posts

@@ -35,11 +35,18 @@ const AnimatedTitle = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const AnimatedImage = ({ children }: { children: React.ReactNode }) => {
+const AnimatedImage = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   return (
     <motion.div
+      className={className}
       ref={ref}
       animate={{
         opacity: inView ? 1 : 0,

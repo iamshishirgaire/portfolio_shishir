@@ -10,11 +10,11 @@ const HeroSection = () => {
       id="hero-section"
       className="container h-full items-center flex  justify-center  px-4 md:px-6"
     >
-      <div className="container px-4 md:px-6 grid md:grid-cols-2 gap-8 items-center">
+      <div className="container px-4 md:px-6 grid xl:grid-cols-2 justify-center gap-8 items-center">
         <AnimatedSection>
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl` md:text-5xl lg:text-6xl/none">
-              Hi, I'm Shishir Gaire
+              {` Hi, I'm Shishir Gaire`}
             </h1>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
               A{" "}
@@ -34,10 +34,10 @@ const HeroSection = () => {
             </div>
           </div>
         </AnimatedSection>
-        <AnimatedImage>
+        <AnimatedImage className="w-full  flex place-items-center justify-center">
           <Image
-            alt="Shishir Gaire"
-            className="aspect-square size-[300] md:size-[500] overflow-hidden border-4 border-border p-1 rounded-full object-cover"
+            alt="profile picture of shishir gaire"
+            className=" size-[300] md:size-[500]  border-4 border-border p-1 rounded-full object-cover"
             height="500"
             src="/images/profile.jpg"
             width="500"

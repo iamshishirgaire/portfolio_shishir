@@ -7,9 +7,9 @@ const LatestFeaturedPost = () => {
 
   return (
     <section className="bg-background py-6 md:py-8">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-8  md:grid-cols-2 md:items-center">
-          <div className="order-first md:order-last">
+      <div className="container  px-5  md:px-6">
+        <div className="grid gap-8  xl:grid-cols-2 md:items-center">
+          <div className="order-first md:order-last pe-8">
             <Image
               alt="Hero Image"
               priority={true}
@@ -23,11 +23,11 @@ const LatestFeaturedPost = () => {
               width="600"
             />
           </div>
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          <div className="space-y-4 pe-4">
+            <h1 className="text-4xl font-bold  tracking-tight sm:text-5xl lg:text-6xl">
               {latestFeatured.title}
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-gray-600  dark:text-gray-400">
               {latestFeatured.description}
             </p>
             <div>

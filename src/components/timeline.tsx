@@ -20,17 +20,11 @@ const TimeLine = () => {
             <span className="absolute p-1 flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-600/20 dark:bg-gray-600">
               <Clock />
             </span>
-            <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-              Thapathali Engineering Campus{" "}
-              <span
-                className="bg-gray-200 text-muted-foreground
- text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-gray-300 ms-3"
-              >
-                Ongoing
-              </span>
+            <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+              Thapathali Engineering Campus
             </h3>
             <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-              Bachelor in Electronics Engineering (2019 - present)
+              Bachelor in Electronics Engineering (2019-present)
             </time>
             <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
               {}

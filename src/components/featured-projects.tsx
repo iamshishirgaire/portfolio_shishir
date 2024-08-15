@@ -61,7 +61,7 @@ export default function FeaturedProjects() {
                           </Badge>
                         ))}
                       </div>
-                      <div className="flex flex-col lg:flex-row gap-2">
+                      <div className="flex  gap-2 mb-2">
                         {project.githubLink && (
                           <Link href={project.githubLink} target="_blank">
                             <Button variant={"outline"} size={"sm"}>
@@ -81,7 +81,7 @@ export default function FeaturedProjects() {
                       </div>
                     </div>
 
-                    <div className="rounded-md overflow-hidden border h-[250px]">
+                    <div className="hidden md:flex rounded-md overflow-hidden border h-[250px]">
                       <Image
                         alt={project.title}
                         className="w-full h-full object-left-bottom rounded-md"

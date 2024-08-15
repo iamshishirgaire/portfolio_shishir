@@ -11,7 +11,7 @@ const PostsCategories = ({ onItemClick }: { onItemClick?: () => void }) => {
           Categories
         </h2>
       </div>
-      <ScrollArea className="h-[30px] w-[100vw]">
+      <ScrollArea className="h-[40px] w-[100vw]">
         {categories.map((category) => (
           <Link
             onClick={onItemClick}

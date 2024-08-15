@@ -11,7 +11,8 @@ const SkillsSection = () => {
             My Skills
           </h2>
           <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-            Here are some of the technologies and tools I'm proficient in.
+            {`            Here are some of the technologies and tools I'm proficient in.
+            `}{" "}
           </p>
         </div>
       </AnimatedTitle>
