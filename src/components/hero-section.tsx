@@ -37,7 +37,7 @@ const HeroSection = () => {
         <AnimatedImage className="w-full  flex place-items-center justify-center">
           <Image
             alt="profile picture of shishir gaire"
-            className=" size-[300] md:size-[500]  border-4 border-border p-1 rounded-full object-cover"
+            className="aspect-square size-[300] md:size-[500]  border-4 border-border p-1 rounded-full object-cover"
             height="500"
             src="/images/profile.jpg"
             width="500"
