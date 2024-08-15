@@ -35,7 +35,8 @@ const TimeLine = () => {
               <CheckCheck />
             </span>
             <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-              Morgan Int'l College
+              {`              Morgan Int'l College
+`}{" "}
             </h3>
             <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
               Higher Secondary Education (2017 - 2019)
